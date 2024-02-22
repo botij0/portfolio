@@ -1,0 +1,70 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
+import Badge from "../components/Badge.astro";
+import LinkedInIcon from "../components/icons/LinkedIn.astro";
+import GithubIcon from "../components/icons/Github.astro";
+import BriefCaseIcon from "../components/icons/BriefCase.astro";
+import SocialPill from "../components/SocialPill.astro";
+import MailIcon from "../components/icons/Mail.astro";
+import Experience from "../components/Experience.astro";
+---
+
+<Layout
+    title="Portfolio de Javier González Soldado - Desarrollador y Programador web"
+    description="Contrata a Javier González Soldado, Ingeniero Telemático y Estudiante del Máster de Desarrollo de Software Ágil para la Web de la Universidad de Alcalá. Apasionado por la tecnología y el desarrollo web. De Alcalá de Henares, España. Disponible para trabajar."
+>
+    <main>
+        <section class="w-[740px] mx-auto py-32">
+            <img
+                src="javier.jpeg"
+                alt="imagen de Javier"
+                class="rounded-full size-16 mb-4"
+            />
+            <h1 class="font-bold text-5xl flex flex-row gap-x-4 pb-4">
+                Hola! Soy Javier González Soldado
+                <a
+                    href="https://www.linkedin.com/in/javier-gonzalez-soldado/"
+                    target="_blank"
+                    rel="noopener"
+                    class="flex justify-center items-center"
+                >
+                    <Badge>Disponible para trabajar</Badge>
+                </a>
+            </h1>
+            <h2 class="text-2xl opacity-80 text-wrap">
+                <span class="text-lime-200/90">Ingeniero Telemático</span> y <span
+                    class="text-sky-300/90">Estudiante del Máster</span
+                > de Desarrollo de Software Ágil para la Web de la Universidad de
+                Alcalá. Apasionado por la tecnología y el desarrollo web. <span
+                    class="text-red-300/90">De Alcalá de Henares, España</span
+                >
+            </h2>
+
+            <nav class="flex gap-x-4 mt-8">
+                <SocialPill
+                    href="https://www.linkedin.com/in/javier-gonzalez-soldado/"
+                >
+                    <LinkedInIcon class="size-6" />
+                    LinkedIn
+                </SocialPill>
+                <SocialPill href="https://github.com/Javier-Gonzalez-Soldado">
+                    <GithubIcon class="size-6" />
+                    GitHub
+                </SocialPill>
+                <SocialPill href="https://github.com/Javier-Gonzalez-Soldado">
+                    <MailIcon class="size-6" />
+                    javier.gonzalez.soldado@gmail.com
+                </SocialPill>
+            </nav>
+        </section>
+
+        <section class="w-[740px] mx-auto">
+            <h2 class="text-3xl font-bold mb-8 flex gap-x-4 items-center">
+                <BriefCaseIcon class="size-8" />
+                Experiencia Laboral
+            </h2>
+            <Experience />
+        </section>
+    </main>
+</Layout>

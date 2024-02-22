@@ -1,0 +1,41 @@
+---
+import Header from "../components/Header.astro";
+// Supports weights 100-700
+import "@fontsource-variable/roboto-mono";
+interface Props {
+    title: string;
+    description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="description" content={description} />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="generator" content={Astro.generator} />
+        <title>{title}</title>
+    </head>
+    <body class="bg-gradient-to-b from-gray-500 to-gray-800">
+        <Header />
+        <slot />
+    </body>
+</html>
+<style is:global>
+    :root {
+        color-scheme: light dark;
+    }
+    html {
+        font-family: "Roboto Mono Variable", system-ui, sans-serif;
+        height: 100vh;
+    }
+    body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+</style>
