@@ -8,6 +8,9 @@ import BriefCaseIcon from "../components/icons/BriefCase.astro";
 import SocialPill from "../components/SocialPill.astro";
 import MailIcon from "../components/icons/Mail.astro";
 import Experience from "../components/Experience.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+import ProjectsIcon from "../components/icons/Projects.astro";
+import Projects from "../components/Projects.astro";
 ---
 
 <Layout
@@ -15,7 +18,7 @@ import Experience from "../components/Experience.astro";
     description="Contrata a Javier González Soldado, Ingeniero Telemático y Estudiante del Máster de Desarrollo de Software Ágil para la Web de la Universidad de Alcalá. Apasionado por la tecnología y el desarrollo web. De Alcalá de Henares, España. Disponible para trabajar."
 >
     <main>
-        <section class="w-[740px] mx-auto py-32">
+        <SectionContainer id="inicio" class="py-32">
             <img
                 src="javier.jpeg"
                 alt="imagen de Javier"
@@ -52,19 +55,27 @@ import Experience from "../components/Experience.astro";
                     <GithubIcon class="size-6" />
                     GitHub
                 </SocialPill>
-                <SocialPill href="https://github.com/Javier-Gonzalez-Soldado">
+                <SocialPill href="mailto:javier.gonzalez.soldado@gmail.com">
                     <MailIcon class="size-6" />
                     javier.gonzalez.soldado@gmail.com
                 </SocialPill>
             </nav>
-        </section>
+        </SectionContainer>
 
-        <section class="w-[740px] mx-auto">
+        <SectionContainer id="experiencia">
             <h2 class="text-3xl font-bold mb-8 flex gap-x-4 items-center">
                 <BriefCaseIcon class="size-8" />
                 Experiencia Laboral
             </h2>
             <Experience />
-        </section>
+        </SectionContainer>
+
+        <SectionContainer id="proyectos">
+            <h2 class="text-3xl font-bold mb-8 flex gap-x-4 items-center">
+                <ProjectsIcon class="size-8" />
+                Proyectos
+            </h2>
+            <Projects />
+        </SectionContainer>
     </main>
 </Layout>

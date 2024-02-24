@@ -1,5 +1,6 @@
 ---
 import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 // Supports weights 100-700
 import "@fontsource-variable/roboto-mono";
 interface Props {
@@ -20,9 +21,10 @@ const { title, description } = Astro.props;
         <meta name="generator" content={Astro.generator} />
         <title>{title}</title>
     </head>
-    <body class="bg-gradient-to-b from-gray-500 to-gray-800">
+    <body class="bg-gradient-to-l from-gray-600 to-gray-800">
         <Header />
         <slot />
+        <Footer />
     </body>
 </html>
 <style is:global>
@@ -32,10 +34,17 @@ const { title, description } = Astro.props;
     html {
         font-family: "Roboto Mono Variable", system-ui, sans-serif;
         height: 100vh;
+        scroll-behavior: smooth;
     }
     body {
         display: flex;
         flex-direction: column;
         justify-content: center;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        html {
+            scroll-behavior: auto;
+        }
     }
 </style>
