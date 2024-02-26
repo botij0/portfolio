@@ -11,58 +11,23 @@ import Experience from "../components/Experience.astro";
 import SectionContainer from "../components/SectionContainer.astro";
 import ProjectsIcon from "../components/icons/Projects.astro";
 import Projects from "../components/Projects.astro";
+import ProfileCheck from "../components/icons/ProfileCheck.astro";
+import AboutMe from "../components/AboutMe.astro";
+import Hero from "../components/Hero.astro";
 ---
 
 <Layout
     title="Portfolio de Javier González Soldado - Desarrollador y Programador web"
     description="Contrata a Javier González Soldado, Ingeniero Telemático y Estudiante del Máster de Desarrollo de Software Ágil para la Web de la Universidad de Alcalá. Apasionado por la tecnología y el desarrollo web. De Alcalá de Henares, España. Disponible para trabajar."
 >
-    <main>
+    <main class="max-w-[768px] mx-auto">
         <SectionContainer id="inicio" class="py-32">
-            <img
-                src="javier.jpeg"
-                alt="imagen de Javier"
-                class="rounded-full size-16 mb-4"
-            />
-            <h1 class="font-bold text-5xl flex flex-row gap-x-4 pb-4">
-                Hola! Soy Javier González Soldado
-                <a
-                    href="https://www.linkedin.com/in/javier-gonzalez-soldado/"
-                    target="_blank"
-                    rel="noopener"
-                    class="flex justify-center items-center"
-                >
-                    <Badge>Disponible para trabajar</Badge>
-                </a>
-            </h1>
-            <h2 class="text-2xl opacity-80 text-wrap">
-                <span class="text-lime-200/90">Ingeniero Telemático</span> y <span
-                    class="text-sky-300/90">Estudiante del Máster</span
-                > de Desarrollo de Software Ágil para la Web de la Universidad de
-                Alcalá. Apasionado por la tecnología y el desarrollo web. <span
-                    class="text-red-300/90">De Alcalá de Henares, España</span
-                >
-            </h2>
-
-            <nav class="flex gap-x-4 mt-8">
-                <SocialPill
-                    href="https://www.linkedin.com/in/javier-gonzalez-soldado/"
-                >
-                    <LinkedInIcon class="size-6" />
-                    LinkedIn
-                </SocialPill>
-                <SocialPill href="https://github.com/Javier-Gonzalez-Soldado">
-                    <GithubIcon class="size-6" />
-                    GitHub
-                </SocialPill>
-                <SocialPill href="mailto:javier.gonzalez.soldado@gmail.com">
-                    <MailIcon class="size-6" />
-                    javier.gonzalez.soldado@gmail.com
-                </SocialPill>
-            </nav>
+            <Hero>
+                <slot />
+            </Hero>
         </SectionContainer>
 
-        <SectionContainer id="experiencia">
+        <SectionContainer id="experiencia" class="mb-32">
             <h2 class="text-3xl font-bold mb-8 flex gap-x-4 items-center">
                 <BriefCaseIcon class="size-8" />
                 Experiencia Laboral
@@ -70,12 +35,22 @@ import Projects from "../components/Projects.astro";
             <Experience />
         </SectionContainer>
 
-        <SectionContainer id="proyectos">
+        <SectionContainer id="proyectos" class="mb-32">
             <h2 class="text-3xl font-bold mb-8 flex gap-x-4 items-center">
                 <ProjectsIcon class="size-8" />
                 Proyectos
             </h2>
             <Projects />
+        </SectionContainer>
+
+        <SectionContainer id="sobre-mi" class="mb-32">
+            <h2
+                class="flex items-center mb-6 text-3xl font-semibold gap-x-8 text-black/80 dark:text-white"
+            >
+                <ProfileCheck class="size-8" />
+                Sobre mí
+            </h2>
+            <AboutMe />
         </SectionContainer>
     </main>
 </Layout>
