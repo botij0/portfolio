@@ -3,19 +3,22 @@ import ExperienceItem from "./ExperienceItem.astro";
 
 const EXPERIENCE = [
     {
-        title: "Investigador - Universidad de Alcalá",
+        title: "Investigador",
+        company: "Universidad de Alcalá",
         date: "Noviembre 2023 - Actualidad...",
         description:
             "Desarrollo de una aplicación web para automatizar procesos empresariales utilizando LLMs. Investigación de las capacidades de los diferentes LLMs del mercado, así como la ética de su uso y la seguridad de la información.",
     },
     {
-        title: "Becario de Investigación - Universidad de Alcalá",
+        title: "Becario de Investigación",
+        company: "Universidad de Alcalá",
         date: "Noviembre 2022 - Agosto 2023",
         description:
             "Migración al lenguaje de programación Rust del boot software de la Unidad de Control de Instrumentos (ICU) del Detector de Párticulas Energéticas (EPD) de la misión espacial Solar Orbiter.",
     },
     {
-        title: "Programador Junior - SOTEC Consulting",
+        title: "Programador Junior",
+        company: "SOTEC Consulting",
         date: "April 2022",
         description:
             "Desarrollo de una aplicación web aplicando MVC en el departamento de Operaciones para las Auditorías de la empresa. Resolución de incidencias y mantenimiento de la aplicación web de la empresa. Redacción de documentación técnica y funcional. Tecnologías utilizadas: SQL Server, HTML, CSS, JavaScript, Git, .NET, C#, BootStrap, JQuery, Entity Framework.",
@@ -23,10 +26,10 @@ const EXPERIENCE = [
 ];
 ---
 
-<ol class="relative border-s border-gray-200 ml-3.5">
+<ol class="relative">
     {
         EXPERIENCE.map((experience) => (
-            <li class="mb-10 ms-4">
+            <li class="ms-0">
                 <ExperienceItem {...experience} />
             </li>
         ))

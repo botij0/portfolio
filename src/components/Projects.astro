@@ -1,4 +1,65 @@
 ---
+import GitHub from "./icons/Github.astro";
+import NextJS from "./icons/NextJS.astro";
+import Tailwind from "./icons/Tailwind.astro";
+import Spring from "./icons/Spring.astro";
+import Azure from "./icons/Azure.astro";
+import PostgreSQL from "./icons/PostgreSQL.astro";
+import Thymeleaf from "./icons/Thymeleaf.astro";
+import Bootstrap from "./icons/Bootstrap.astro";
+import JQuery from "./icons/JQuery.astro";
+import MySQL from "./icons/MySQL.astro";
+import LinkButton from "./LinkButton.astro";
+import Link from "./icons/Link.astro";
+
+const TAGS = {
+    NEXT: {
+        name: "Next.js",
+        class: "bg-black text-white",
+        icon: NextJS,
+    },
+    TAILWIND: {
+        name: "Tailwind CSS",
+        class: "bg-[#003159] text-white",
+        icon: Tailwind,
+    },
+    SPRING: {
+        name: "Spring",
+        class: "bg-[#6DB33F] text-white",
+        icon: Spring,
+    },
+    POSTGRESQL: {
+        name: "PostgreSQL",
+        class: "bg-[#336791] text-white",
+        icon: PostgreSQL,
+    },
+    AZURE: {
+        name: "Azure",
+        class: "bg-[#00abf0] text-white",
+        icon: Azure,
+    },
+    BOOTSTRAP: {
+        name: "Bootstrap",
+        class: "bg-[#7962b3] text-white",
+        icon: Bootstrap,
+    },
+    JQUERY: {
+        name: "jQuery",
+        class: "bg-[#0769ad] text-white",
+        icon: JQuery,
+    },
+    THYMELEAF: {
+        name: "Thymeleaf",
+        class: "bg-[#005F0F] text-white",
+        icon: Thymeleaf,
+    },
+    MYSQL: {
+        name: "MySQL",
+        class: "bg-[#6c82a6] text-white",
+        icon: MySQL,
+    },
+};
+
 const PROJECTS = [
     {
         title: "F1 Agile Portal - Portal F1 2023/2024",
@@ -6,14 +67,13 @@ const PROJECTS = [
             "Proyecto de portal web para la F1 2023/2024 siguiendo metodologías ágiles (Scrum) y con un diseño responsive. Realizado por un equipo de 5 personas para una asignatura del máster DASW de la UAH. Desplegado el front en Vercel y el Back en Azure (Es posible que la primera vez que se entre en el sitio web no funcione correctamente porque se estará deplegando la instancia de Azure). ",
         image: "f1_portal.webp",
         link: "https://f1-frontend-flax.vercel.app/",
-        github: "https://www.github.com",
+        github: "https://github.com/Javier-Gonzalez-Soldado/F1-Met-AG-",
         tags: [
-            "NextJS",
-            "TailwindCSS",
-            "Spring Boot",
-            "PostgreSQL",
-            "Scrum",
-            "Azure",
+            TAGS.NEXT,
+            TAGS.SPRING,
+            TAGS.TAILWIND,
+            TAGS.AZURE,
+            TAGS.POSTGRESQL,
         ],
     },
     {
@@ -21,30 +81,84 @@ const PROJECTS = [
         description:
             "Proyecto de portal web clon de FilmAffinity. Realizado para la asignatura Frameworks Backend y Microservicios del máster DASW de la UAH. Tecnologías utilizadas: Spring Boot, Java, Thymeleaf, HTML, CSS, JavaScript, MySQL.",
         image: "filmspringnitty.webp",
-        link: "https://f1-frontend-flax.vercel.app/",
-        github: "https://www.github.com",
-        tags: ["Spring Boot", "Thymeleaf", "Bootstrap", "JavaScript", "MySQL"],
+        github: "https://github.com/Javier-Gonzalez-Soldado/FilmSpringnitty",
+        tags: [
+            TAGS.SPRING,
+            TAGS.THYMELEAF,
+            TAGS.BOOTSTRAP,
+            TAGS.JQUERY,
+            TAGS.MYSQL,
+        ],
     },
 ];
 ---
 
-{
-    PROJECTS.map((project) => (
-        <article class="mb-12">
-            <h3 class="text-2xl font-semibold text-lime-400 mb-2">
-                {project.title}
-            </h3>
-            <p class="text-lg mb-4 text-pretty">{project.description}</p>
-            <ul>
-                {project.tags.map((tag) => (
-                    <li>{tag}</li>
-                ))}
-            </ul>
-            <img
-                class="rounded-lg shadow-2xl shadow-white/30 "
-                src={project.image}
-                alt={"Captura de pantalla del proyecto " + project.title}
-            />
-        </article>
-    ))
-}
+<div class="flex flex-col gap-y-16">
+    {
+        PROJECTS.map((project) => (
+            <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
+                <div class="w-full md:w-1/2">
+                    <div
+                        class="relative items-center gap-8 transition duration-500 
+                            ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 
+                            md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50"
+                    >
+                        <img
+                            alt="Project Image"
+                            class="object-top w-full transition duration-500 sm:h-full 
+                                    md:scale-110 md:group-hover:scale-105"
+                            loading="lazy"
+                            src={project.image}
+                        />
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2 md:max-w-lg">
+                    <h3 class="text-2xl font-semibold text-lime-400 mb-2">
+                        {project.title}
+                    </h3>
+                    <div class="flex flex-wrap mt-2">
+                        <ul class="flex flex-wrap  gap-3">
+                            {project.tags.map((tag) => (
+                                <li>
+                                    <span
+                                        class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
+                                    >
+                                        <tag.icon class="size-4" />
+                                        {tag.name}
+                                    </span>
+                                </li>
+                            ))}
+                        </ul>
+
+                        <div
+                            class="mt-2 text-gray-700 dark:text-gray-400"
+                            title={
+                                project.description.length > 150
+                                    ? project.description
+                                    : null
+                            }
+                        >
+                            {project.description.length > 150
+                                ? `${project.description.substring(0, 150)}...`
+                                : project.description}
+                        </div>
+                        <footer class="flex items-end justify-start mt-4 gap-x-4">
+                            {project.github && (
+                                <LinkButton href={project.github}>
+                                    <GitHub class="size-6" />
+                                    Code
+                                </LinkButton>
+                            )}
+                            {project.link && (
+                                <LinkButton href={project.link}>
+                                    <Link class="size-4" />
+                                    Preview
+                                </LinkButton>
+                            )}
+                        </footer>
+                    </div>
+                </div>
+            </article>
+        ))
+    }
+</div>
