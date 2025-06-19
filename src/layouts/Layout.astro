@@ -1,6 +1,7 @@
 ---
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import "../layouts/layout.css";
 // Supports weights 100-700
 import "@fontsource-variable/roboto-mono";
 interface Props {
@@ -20,31 +21,169 @@ const { title, description } = Astro.props;
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <meta name="generator" content={Astro.generator} />
         <title>{title}</title>
-    </head>
-    <body class="bg-gradient-to-l from-gray-700 to-gray-900">
-        <Header />
-        <slot />
-        <Footer />
-    </body>
-</html>
-<style is:global>
-    :root {
-        color-scheme: light dark;
-    }
-    html {
-        font-family: "Roboto Mono Variable", system-ui, sans-serif;
-        height: 100vh;
-        scroll-behavior: smooth;
-    }
-    body {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
+        <style>
+            /* Loading screen styles */
+            .loading-screen {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(
+                    135deg,
+                    #0f0f0f 0%,
+                    #1a1a2e 50%,
+                    #16213e 100%
+                );
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                z-index: 9999;
+                transition: opacity 0.5s ease-out;
+            }
 
-    @media (prefers-reduced-motion: reduce) {
-        html {
-            scroll-behavior: auto;
+            .loading-screen.fade-out {
+                opacity: 0;
+                pointer-events: none;
+            }
+
+            .loading-spinner {
+                width: 50px;
+                height: 50px;
+                border: 3px solid rgba(109, 0, 137, 0.3);
+                border-top: 3px solid #6d0089;
+                border-radius: 50%;
+                animation: spin 1s linear infinite;
+                margin-bottom: 20px;
+            }
+
+            .loading-text {
+                color: #6d0089;
+                font-family: "Roboto Mono Variable", monospace;
+                font-size: 16px;
+                font-weight: 500;
+                opacity: 0.8;
+            }
+
+            @keyframes spin {
+                0% {
+                    transform: rotate(0deg);
+                }
+                100% {
+                    transform: rotate(360deg);
+                }
+            }
+
+            /* Initially hide main content */
+            .main-content {
+                opacity: 0;
+                transition: opacity 0.5s ease-in;
+            }
+
+            .main-content.show {
+                opacity: 1;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Loading Screen -->
+        <div class="loading-screen" id="loadingScreen">
+            <div class="loading-spinner"></div>
+            <div class="loading-text">Loading background...</div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="bg-fog main-content" id="mainContent">
+            <Header />
+            <slot />
+            <Footer />
+        </div>
+    </body>
+
+    <script>
+        // Function to load scripts sequentially
+        function loadScript(src) {
+            return new Promise((resolve, reject) => {
+                const script = document.createElement("script");
+                script.src = src;
+                script.onload = resolve;
+                script.onerror = reject;
+                document.head.appendChild(script);
+            });
         }
-    }
-</style>
+
+        // Function to hide loading screen and show content
+        function showContent() {
+            const loadingScreen = document.getElementById("loadingScreen");
+            const mainContent = document.getElementById("mainContent");
+
+            // Fade out loading screen
+            loadingScreen.classList.add("fade-out");
+
+            // Show main content
+            mainContent.classList.add("show");
+
+            // Remove loading screen from DOM after animation
+            setTimeout(() => {
+                loadingScreen.remove();
+            }, 500);
+        }
+
+        // Function to initialize VANTA when everything is ready
+        function initVanta() {
+            if (window.VANTA && window.THREE) {
+                try {
+                    VANTA.FOG({
+                        el: ".bg-fog",
+                        mouseControls: true,
+                        touchControls: true,
+                        gyroControls: false,
+                        minHeight: 200.0,
+                        minWidth: 200.0,
+                        highlightColor: 0x6d0089,
+                        midtoneColor: 0x456b,
+                        lowlightColor: 0x115200,
+                        baseColor: 0x0,
+                    });
+                    console.log("VANTA.js initialized successfully");
+
+                    // Show content after VANTA is initialized
+                    setTimeout(showContent, 300); // Small delay to ensure VANTA renders
+                } catch (error) {
+                    console.error("Error initializing VANTA:", error);
+                    // Show content even if VANTA fails
+                    showContent();
+                }
+            } else {
+                console.error("VANTA or THREE.js not available");
+                // Show content even if libraries aren't available
+                showContent();
+            }
+        }
+
+        // Load scripts in sequence when DOM is ready
+        document.addEventListener("DOMContentLoaded", async function () {
+            try {
+                // Load Three.js first
+                await loadScript(
+                    "https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"
+                );
+                console.log("Three.js loaded");
+
+                // Then load VANTA.js
+                await loadScript(
+                    "https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.fog.min.js"
+                );
+                console.log("VANTA.js loaded");
+
+                // Initialize VANTA
+                initVanta();
+            } catch (error) {
+                console.error("Error loading scripts:", error);
+                // Show content even if scripts fail to load
+                showContent();
+            }
+        });
+    </script>
+</html>
