@@ -23,16 +23,16 @@ const { title, description } = Astro.props;
         <title>{title}</title>
     </head>
     <body>
+        <!-- Background -->
         <div class="wrapper">
             <div class="gradient gradient-1"></div>
             <div class="gradient gradient-2"></div>
             <div class="gradient gradient-3"></div>
         </div>
+
         <!-- Main Content -->
-        <div>
-            <Header />
-            <slot />
-            <Footer />
-        </div>
+        <Header />
+        <slot />
+        <Footer />
     </body>
 </html>

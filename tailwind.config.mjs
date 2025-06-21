@@ -10,7 +10,7 @@ export default {
                 accentLime: "#c6ff00",
                 warning: "#ff3131",
                 asphalt: "#121212",
-                dark: "#120F15",
+                dark: "#0D0C11",
             },
         },
     },
