@@ -62,7 +62,8 @@ const TAGS = {
 
 const PROJECTS = [
     {
-        title: "F1 Agile Portal - Portal F1 2023/2024",
+        title: "F1 Agile Portal",
+        subtitle: "Portal F1 2023/2024",
         description:
             "Proyecto de portal web para la F1 2023/2024 siguiendo metodologías ágiles (Scrum) y con un diseño responsive. Realizado por un equipo de 5 personas para una asignatura del máster DASW de la UAH. Desplegado el front en Vercel y el Back en Azure (Es posible que la primera vez que se entre en el sitio web no funcione correctamente porque se estará deplegando la instancia de Azure). ",
         image: "f1_portal.webp",
@@ -77,7 +78,8 @@ const PROJECTS = [
         ],
     },
     {
-        title: "FilmSpringnitty - Portal de películas y críticas",
+        title: "FilmSpringnitty",
+        subtitle: "Portal de películas y críticas",
         description:
             "Proyecto de portal web clon de FilmAffinity. Realizado para la asignatura Frameworks Backend y Microservicios del máster DASW de la UAH. Tecnologías utilizadas: Spring Boot, Java, Thymeleaf, HTML, CSS, JavaScript, MySQL.",
         image: "filmspringnitty.webp",
@@ -103,10 +105,10 @@ const PROJECTS = [
                     backdrop-blur-sm border border-white/10 dark:border-gray-700/50 rounded-3xl overflow-hidden
                     shadow-xl shadow-black/5 dark:shadow-black/20
                     group-hover:shadow-2xl group-hover:shadow-black/10 dark:group-hover:shadow-black/30
-                    group-hover:border-accentLime/20 transition-all duration-500">
+                    group-hover:border-secondary/20 transition-all duration-500">
 
                     <!-- Subtle gradient overlay -->
-                    <div class="absolute inset-0 bg-gradient-to-br from-accentLime/5 to-transparent opacity-0
+                    <div class="absolute inset-0 bg-gradient-to-br from-secondary/5 to-transparent opacity-0
                         group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
 
                     <!-- Image Container -->
@@ -139,9 +141,9 @@ const PROJECTS = [
                             {project.link && (
                                 <a
                                     href={project.link}
-                                    class="flex items-center justify-center w-10 h-10 bg-accentLime/90 backdrop-blur-sm
-                                    text-white rounded-full hover:bg-accentLime hover:scale-110 transition-all duration-300
-                                    shadow-lg shadow-accentLime/25"
+                                    class="flex items-center justify-center w-10 h-10 bg-secondary/90 backdrop-blur-sm
+                                    text-white rounded-full hover:bg-secondary hover:scale-110 transition-all duration-300
+                                    shadow-lg shadow-secondary/25"
                                     title="Live Preview"
                                 >
                                     <Link class="w-4 h-4" />
@@ -153,8 +155,8 @@ const PROJECTS = [
                     <!-- Card Content -->
                     <div class="relative z-20 p-6 space-y-4">
                         <!-- Project Title -->
-                        <h3 class="text-xl lg:text-2xl font-bold bg-gradient-to-r from-accentLime to-green-400
-                            bg-clip-text text-transparent leading-tight group-hover:from-accentLime group-hover:to-lime-300
+                        <h3 class="text-xl lg:text-2xl font-bold bg-gradient-to-r from-secondary to-teal-400
+                            bg-clip-text text-transparent leading-tight group-hover:from-secondary group-hover:to-teal-300
                             transition-all duration-300">
                             {project.title}
                         </h3>
@@ -202,8 +204,8 @@ const PROJECTS = [
                                 <a
                                     href={project.link}
                                     class="inline-flex items-center px-4 py-2 text-sm font-semibold text-white
-                                    bg-gradient-to-r from-accentLime/90 to-green-500/90 rounded-xl border border-accentLime/30
-                                    hover:from-accentLime hover:to-green-500 hover:scale-105 hover:shadow-xl hover:shadow-accentLime/25
+                                    bg-gradient-to-r from-secondary/90 to-teal-500/90 rounded-xl border border-secondary/30
+                                    hover:from-secondary hover:to-teal-500 hover:scale-105 hover:shadow-xl hover:shadow-secondary/25
                                     transition-all duration-300 group/btn"
                                 >
                                     <Link class="w-4 h-4 mr-2 group-hover/btn:translate-x-1 transition-transform duration-300" />
@@ -214,7 +216,7 @@ const PROJECTS = [
                     </div>
 
                     <!-- Decorative elements -->
-                    <div class="absolute -bottom-2 -right-2 w-24 h-24 bg-gradient-to-br from-accentLime/10 to-green-400/10
+                    <div class="absolute -bottom-2 -right-2 w-24 h-24 bg-gradient-to-br from-secondary/10 to-green-400/10
                         rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     <div class="absolute -top-2 -left-2 w-16 h-16 bg-gradient-to-br from-blue-400/10 to-purple-400/10
                         rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 delay-200"></div>
