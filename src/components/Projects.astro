@@ -15,47 +15,47 @@ import Link from "./icons/Link.astro";
 const TAGS = {
     NEXT: {
         name: "Next.js",
-        class: "bg-black text-white",
+        class: "bg-gradient-to-r from-black to-gray-800 text-white border-gray-600",
         icon: NextJS,
     },
     TAILWIND: {
         name: "Tailwind CSS",
-        class: "bg-[#003159] text-white",
+        class: "bg-gradient-to-r from-[#003159] to-[#0ea5e9] text-white border-[#0ea5e9]",
         icon: Tailwind,
     },
     SPRING: {
         name: "Spring",
-        class: "bg-[#6DB33F] text-white",
+        class: "bg-gradient-to-r from-[#6DB33F] to-[#68a063] text-white border-[##6DB33F]",
         icon: Spring,
     },
     POSTGRESQL: {
         name: "PostgreSQL",
-        class: "bg-[#336791] text-white",
+        class: "bg-gradient-to-r from-[#336791] to-[#4c9cd1] text-white border-[#336791]",
         icon: PostgreSQL,
     },
     AZURE: {
         name: "Azure",
-        class: "bg-[#00abf0] text-white",
+        class: "bg-gradient-to-r from-[#00abf0] to-[#40c9ff] text-white border-[#00abf0]",
         icon: Azure,
     },
     BOOTSTRAP: {
         name: "Bootstrap",
-        class: "bg-[#7962b3] text-white",
+        class: "bg-gradient-to-r from-[#7962b3] to-[#9575cd] text-white border-[#7962b3]",
         icon: Bootstrap,
     },
     JQUERY: {
         name: "jQuery",
-        class: "bg-[#0769ad] text-white",
+        class: "bg-gradient-to-r from-[#0769ad] to-[#1976d2] text-white border-[#0769ad]",
         icon: JQuery,
     },
     THYMELEAF: {
         name: "Thymeleaf",
-        class: "bg-[#005F0F] text-white",
+        class: "bg-gradient-to-r from-[#005F0F] to-[#2e7d32] text-white border-[#005F0F]",
         icon: Thymeleaf,
     },
     MYSQL: {
         name: "MySQL",
-        class: "bg-[#6c82a6] text-white",
+        class: "bg-gradient-to-r from-[#6c82a6] to-[#8297b8] text-white border-[#6c82a6]",
         icon: MySQL,
     },
 };
@@ -93,72 +93,158 @@ const PROJECTS = [
 ];
 ---
 
-<div class="flex flex-col gap-y-16">
+<!-- Modern Grid Container -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 max-w-7xl mx-auto">
     {
-        PROJECTS.map((project) => (
-            <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
-                <div class="w-full md:w-1/2">
-                    <div
-                        class="relative items-center gap-8 transition duration-500 
-                            ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 
-                            md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50"
-                    >
+        PROJECTS.map((project, index) => (
+            <article class={`group relative transform transition-all duration-700 ease-out hover:scale-[1.02] ${index % 2 === 0 ? 'md:translate-y-0' : 'md:translate-y-8'}`}>
+                <!-- Main Card Container -->
+                <div class="relative bg-gradient-to-br from-white/5 to-white/10 dark:from-gray-800/30 dark:to-gray-900/30
+                    backdrop-blur-sm border border-white/10 dark:border-gray-700/50 rounded-3xl overflow-hidden
+                    shadow-xl shadow-black/5 dark:shadow-black/20
+                    group-hover:shadow-2xl group-hover:shadow-black/10 dark:group-hover:shadow-black/30
+                    group-hover:border-accentLime/20 transition-all duration-500">
+
+                    <!-- Subtle gradient overlay -->
+                    <div class="absolute inset-0 bg-gradient-to-br from-accentLime/5 to-transparent opacity-0
+                        group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
+
+                    <!-- Image Container -->
+                    <div class="relative h-64 md:h-56 lg:h-64 overflow-hidden">
+                        <!-- Image overlay for better text readability -->
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-20"></div>
+
                         <img
-                            alt="Project Image"
-                            class="object-top w-full transition duration-500 sm:h-full 
-                                    md:scale-110 md:group-hover:scale-105"
+                            alt={`${project.title} preview`}
+                            class="w-full h-full object-cover object-top transition-all duration-700
+                                group-hover:scale-110 group-hover:brightness-110"
                             loading="lazy"
                             src={project.image}
                         />
-                    </div>
-                </div>
-                <div class="w-full md:w-1/2 md:max-w-lg">
-                    <h3 class="text-2xl font-semibold text-lime-400 mb-2">
-                        {project.title}
-                    </h3>
-                    <div class="flex flex-wrap mt-2">
-                        <ul class="flex flex-wrap  gap-3">
-                            {project.tags.map((tag) => (
-                                <li>
-                                    <span
-                                        class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
-                                    >
-                                        <tag.icon class="size-4" />
-                                        {tag.name}
-                                    </span>
-                                </li>
-                            ))}
-                        </ul>
 
-                        <div
-                            class="mt-2 text-gray-700 dark:text-gray-400"
-                            title={
-                                project.description.length > 150
-                                    ? project.description
-                                    : null
-                            }
-                        >
-                            {project.description.length > 150
-                                ? `${project.description.substring(0, 150)}...`
-                                : project.description}
-                        </div>
-                        <footer class="flex items-end justify-start mt-4 gap-x-4">
+                        <!-- Floating action buttons -->
+                        <div class="absolute top-4 right-4 flex gap-2 z-30 opacity-0 group-hover:opacity-100
+                            transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-100">
                             {project.github && (
-                                <LinkButton href={project.github}>
-                                    <GitHub class="size-6" />
-                                    Code
-                                </LinkButton>
+                                <a
+                                    href={project.github}
+                                    class="flex items-center justify-center w-10 h-10 bg-black/80 backdrop-blur-sm
+                                    text-white rounded-full hover:bg-black hover:scale-110 transition-all duration-300
+                                    shadow-lg shadow-black/25"
+                                    title="View Source Code"
+                                >
+                                    <GitHub class="w-5 h-5" />
+                                </a>
                             )}
                             {project.link && (
-                                <LinkButton href={project.link}>
-                                    <Link class="size-4" />
-                                    Preview
-                                </LinkButton>
+                                <a
+                                    href={project.link}
+                                    class="flex items-center justify-center w-10 h-10 bg-accentLime/90 backdrop-blur-sm
+                                    text-white rounded-full hover:bg-accentLime hover:scale-110 transition-all duration-300
+                                    shadow-lg shadow-accentLime/25"
+                                    title="Live Preview"
+                                >
+                                    <Link class="w-4 h-4" />
+                                </a>
                             )}
-                        </footer>
+                        </div>
                     </div>
+
+                    <!-- Card Content -->
+                    <div class="relative z-20 p-6 space-y-4">
+                        <!-- Project Title -->
+                        <h3 class="text-xl lg:text-2xl font-bold bg-gradient-to-r from-accentLime to-green-400
+                            bg-clip-text text-transparent leading-tight group-hover:from-accentLime group-hover:to-lime-300
+                            transition-all duration-300">
+                            {project.title}
+                        </h3>
+
+                        <!-- Technology Tags -->
+                        <div class="flex flex-wrap gap-2">
+                            {project.tags.map((tag) => (
+                                <span class={`
+                                    inline-flex items-center gap-2 px-3 py-1.5 text-xs font-medium rounded-full
+                                    ${tag.class} border shadow-sm
+                                    hover:scale-105 hover:shadow-md transition-all duration-300 cursor-default
+                                `}>
+                                    <tag.icon class="w-3 h-3" />
+                                    {tag.name}
+                                </span>
+                            ))}
+                        </div>
+
+                        <!-- Project Description -->
+                        <div class="text-sm lg:text-base leading-relaxed text-gray-700 dark:text-gray-300
+                            group-hover:text-gray-900 dark:group-hover:text-gray-100 transition-colors duration-300"
+                            title={project.description.length > 120 ? project.description : undefined}>
+                            {
+                                project.description.length > 120
+                                    ? `${project.description.substring(0, 120)}...`
+                                    : project.description
+                            }
+                        </div>
+
+                        <!-- Action buttons -->
+                        <div class="flex items-center gap-3 pt-2">
+                            {project.github && (
+                                <a
+                                    href={project.github}
+                                    class="inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-700 dark:text-gray-300
+                                    bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl border border-gray-200 dark:border-gray-600
+                                    hover:bg-white dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white
+                                    hover:scale-105 hover:shadow-lg transition-all duration-300 group/btn"
+                                >
+                                    <GitHub class="w-4 h-4 mr-2 group-hover/btn:rotate-12 transition-transform duration-300" />
+                                    Code
+                                </a>
+                            )}
+                            {project.link && (
+                                <a
+                                    href={project.link}
+                                    class="inline-flex items-center px-4 py-2 text-sm font-semibold text-white
+                                    bg-gradient-to-r from-accentLime/90 to-green-500/90 rounded-xl border border-accentLime/30
+                                    hover:from-accentLime hover:to-green-500 hover:scale-105 hover:shadow-xl hover:shadow-accentLime/25
+                                    transition-all duration-300 group/btn"
+                                >
+                                    <Link class="w-4 h-4 mr-2 group-hover/btn:translate-x-1 transition-transform duration-300" />
+                                    Preview
+                                </a>
+                            )}
+                        </div>
+                    </div>
+
+                    <!-- Decorative elements -->
+                    <div class="absolute -bottom-2 -right-2 w-24 h-24 bg-gradient-to-br from-accentLime/10 to-green-400/10
+                        rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="absolute -top-2 -left-2 w-16 h-16 bg-gradient-to-br from-blue-400/10 to-purple-400/10
+                        rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 delay-200"></div>
                 </div>
             </article>
         ))
     }
 </div>
+
+<style>
+    /* Add custom scrollbar for better aesthetics */
+    * {
+        scrollbar-width: thin;
+        scrollbar-color: rgba(132, 204, 22, 0.3) transparent;
+    }
+
+    *::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    *::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    *::-webkit-scrollbar-thumb {
+        background-color: rgba(132, 204, 22, 0.3);
+        border-radius: 3px;
+    }
+
+    *::-webkit-scrollbar-thumb:hover {
+        background-color: rgba(132, 204, 22, 0.5);
+    }
+</style>
