@@ -3,42 +3,242 @@ const personalImageAlt = "Javier Gonzalez Soldado";
 ---
 
 <article
-    class="flex flex-col items-center justify-center gap-8 text-gray-700 dark:text-gray-300 md:flex-row"
+    class="relative flex flex-col items-center justify-center gap-12 text-gray-700 dark:text-gray-300 md:flex-row md:gap-16 animate-fade-in"
 >
+    <!-- Animated background elements -->
+    <div class="absolute inset-0 -z-10 overflow-hidden">
+        <div
+            class="absolute top-1/4 left-1/4 w-32 h-32 bg-gradient-to-r from-yellow-400/10 to-orange-400/10 rounded-full blur-xl animate-float"
+        >
+        </div>
+        <div
+            class="absolute bottom-1/4 right-1/4 w-24 h-24 bg-gradient-to-r from-blue-400/10 to-purple-400/10 rounded-full blur-xl animate-float-delayed"
+        >
+        </div>
+    </div>
+
     <div
-        class="[&>p]:mb-4 [&>p>strong]:text-yellow-500 dark:[&>p>strong]:text-yellow-100 [&>p>strong]:font-normal [&>p>strong]:font-mono text-pretty order-2 md:order-1"
+        class="[&>p]:mb-6 [&>p>strong]:text-transparent [&>p>strong]:bg-gradient-to-r [&>p>strong]:from-yellow-500 [&>p>strong]:to-orange-500 [&>p>strong]:bg-clip-text dark:[&>p>strong]:from-yellow-100 dark:[&>p>strong]:to-orange-200 [&>p>strong]:font-medium [&>p>strong]:font-mono text-pretty order-2 md:order-1 max-w-lg animate-slide-in-left"
     >
-        <p>
-            Me llamo Javier. Me introduje en la programación mediante la
-            robótica educativa, tenía 14 años. Actualmente soy ingeniero
-            telemático y estoy <strong>
-                finalizando el máster de Máster de Desarrollo de Software Ágil
-                para la Web de la Universidad de Alcalá
+        <p
+            class="opacity-0 animate-fade-in-up"
+            style="animation-delay: 0.2s; animation-fill-mode: forwards;"
+        >
+            Me llamo <strong>Javier</strong>. Me introduje en la programación
+            mediante la robótica educativa, tenía 14 años. Actualmente soy <strong
+                >ingeniero telemático</strong
+            > y estoy finalizando el <strong>
+                Máster de Desarrollo de Software Ágil para la Web de la
+                Universidad de Alcalá
             </strong>.
         </p>
 
-        <p>
+        <p
+            class="opacity-0 animate-fade-in-up"
+            style="animation-delay: 0.4s; animation-fill-mode: forwards;"
+        >
             Algunos de mis éxitos incluyen <strong
                 >ser el número dos de mi promoción y haber colaborado en varios
                 proyectos de investigación</strong
             >. Aunque todavía no se han publicado artículos al respecto.
         </p>
 
-        <p>
+        <p
+            class="opacity-0 animate-fade-in-up"
+            style="animation-delay: 0.6s; animation-fill-mode: forwards;"
+        >
             Personalmente, <strong
                 >me fascina el conocimiento y siempre intento estar actualizado
                 leyendo libros o artículos</strong
             >. Actualmente deseo mejorar mis conocimientos técnicos para poder
             desarrollar aplicaciones web útiles y únicas.
         </p>
+
+        <!-- Animated accent line -->
+        <div
+            class="w-0 h-1 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-full mt-8 animate-expand-width"
+            style="animation-delay: 0.8s;"
+        >
+        </div>
     </div>
 
-    <img
-        width="200"
-        height="200"
-        src="/javier.jpeg"
-        alt={personalImageAlt}
-        class="order-1 object-cover w-64 h-full p-1 md:order-2 rotate-3 lg:p-2 lg:w-64 aspect-square rounded-2xl bg-black/20 dark:bg-yellow-500/5 ring-1 ring-black/70 dark:ring-white/20"
-        style="object-position: 50% 50%"
-    />
+    <div class="relative group order-1 md:order-2 animate-slide-in-right">
+        <!-- Animated ring background -->
+        <div
+            class="absolute inset-0 bg-gradient-to-r from-yellow-500/20 to-orange-500/20 rounded-2xl blur-lg scale-110 opacity-0 group-hover:opacity-100 transition-all duration-500 animate-pulse-subtle"
+        >
+        </div>
+
+        <!-- Image container with advanced styling -->
+        <div
+            class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-yellow-500/10 to-orange-500/10 p-1 backdrop-blur-sm ring-1 ring-black/10 dark:ring-white/10 transition-all duration-500 hover:scale-105 hover:rotate-1 hover:shadow-2xl hover:shadow-yellow-500/25"
+        >
+            <img
+                width="200"
+                height="200"
+                src="/javier.jpeg"
+                alt={personalImageAlt}
+                class="object-cover w-64 h-64 rounded-xl transition-all duration-500 hover:scale-110 group-hover:brightness-110"
+                style="object-position: 50% 50%"
+            />
+
+            <!-- Overlay gradient on hover -->
+            <div
+                class="absolute inset-0 bg-gradient-to-t from-yellow-500/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl"
+            >
+            </div>
+        </div>
+
+        <!-- Floating elements around image -->
+        <div
+            class="absolute -top-2 -left-2 w-4 h-4 bg-yellow-500 rounded-full animate-bounce"
+            style="animation-delay: 1s;"
+        >
+        </div>
+        <div
+            class="absolute -bottom-2 -right-2 w-3 h-3 bg-orange-500 rounded-full animate-bounce"
+            style="animation-delay: 1.5s;"
+        >
+        </div>
+        <div
+            class="absolute top-1/2 -right-4 w-2 h-2 bg-blue-500 rounded-full animate-pulse"
+            style="animation-delay: 2s;"
+        >
+        </div>
+    </div>
 </article>
+
+<style>
+    @keyframes fade-in {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes fade-in-up {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes slide-in-left {
+        from {
+            opacity: 0;
+            transform: translateX(-50px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    @keyframes slide-in-right {
+        from {
+            opacity: 0;
+            transform: translateX(50px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    @keyframes float {
+        0%,
+        100% {
+            transform: translateY(0px) rotate(0deg);
+        }
+        50% {
+            transform: translateY(-20px) rotate(180deg);
+        }
+    }
+
+    @keyframes float-delayed {
+        0%,
+        100% {
+            transform: translateY(0px) rotate(0deg);
+        }
+        50% {
+            transform: translateY(-15px) rotate(-180deg);
+        }
+    }
+
+    @keyframes expand-width {
+        from {
+            width: 0;
+        }
+        to {
+            width: 100px;
+        }
+    }
+
+    @keyframes pulse-subtle {
+        0%,
+        100% {
+            opacity: 0.1;
+        }
+        50% {
+            opacity: 0.3;
+        }
+    }
+
+    .animate-fade-in {
+        animation: fade-in 0.8s ease-out;
+    }
+
+    .animate-fade-in-up {
+        animation: fade-in-up 0.6s ease-out;
+    }
+
+    .animate-slide-in-left {
+        animation: slide-in-left 0.8s ease-out;
+    }
+
+    .animate-slide-in-right {
+        animation: slide-in-right 0.8s ease-out;
+    }
+
+    .animate-float {
+        animation: float 6s ease-in-out infinite;
+    }
+
+    .animate-float-delayed {
+        animation: float-delayed 8s ease-in-out infinite;
+    }
+
+    .animate-expand-width {
+        animation: expand-width 1s ease-out forwards;
+    }
+
+    .animate-pulse-subtle {
+        animation: pulse-subtle 4s ease-in-out infinite;
+    }
+
+    /* Ensure animations work on page load */
+    @media (prefers-reduced-motion: no-preference) {
+        article {
+            animation-duration: 0.8s;
+            animation-timing-function: ease-out;
+            animation-fill-mode: both;
+        }
+    }
+
+    /* Respect user's motion preferences */
+    @media (prefers-reduced-motion: reduce) {
+        * {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+        }
+    }
+</style>
