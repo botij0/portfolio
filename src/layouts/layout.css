@@ -38,7 +38,7 @@ body {
 }
 
 .gradient-1 {
-    background: rgba(255, 0, 93, 0.5) none repeat scroll 0% 0% / auto
+    background: rgba(255, 0, 93, 0.3) none repeat scroll 0% 0% / auto
         padding-box border-box;
     width: 700px;
     height: 700px;
@@ -50,7 +50,7 @@ body {
     animation-name: animation-gradient-1;
 }
 .gradient-2 {
-    background: rgba(255, 0, 93, 0.9) none repeat scroll 0% 0% / auto
+    background: rgba(255, 0, 93, 0.5) none repeat scroll 0% 0% / auto
         padding-box border-box;
     width: 600px;
     height: 600px;
@@ -62,7 +62,7 @@ body {
     animation-name: animation-gradient-2;
 }
 .gradient-3 {
-    background: rgba(255, 0, 93, 0.6) none repeat scroll 0% 0% / auto
+    background: rgba(255, 0, 93, 0.3) none repeat scroll 0% 0% / auto
         padding-box border-box;
     width: 500px;
     height: 500px;

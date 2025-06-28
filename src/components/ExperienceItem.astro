@@ -13,15 +13,15 @@ const { title, description, link, date, company } = Astro.props;
 <div
     class="relative mx-4 pb-8 group transition-all duration-500 ease-in-out hover:scale-[1.02]
     before:absolute before:left-[-35px] before:block before:h-full before:w-0.5
-    before:bg-accentLime/50
+    before:bg-primary/50
     before:content-['']
     md:mx-12 md:pb-12 md:grid md:grid-cols-5 md:gap-8"
 >
     <!-- Timeline dot with glow effect -->
     <div
-        class="absolute -left-[42px] top-2 w-4 h-4 bg-accentLime
-        rounded-full shadow-lg shadow-accentLime/30
-        group-hover:shadow-accentLime/70 group-hover:scale-110 transition-all duration-300
+        class="absolute -left-[42px] top-2 w-4 h-4 bg-primary
+        rounded-full shadow-lg shadow-primary/30
+        group-hover:shadow-primary/70 group-hover:scale-110 transition-all duration-300
         before:absolute before:inset-0 before:rounded-full before:animate-ping"
     >
     </div>
@@ -31,25 +31,22 @@ const { title, description, link, date, company } = Astro.props;
         <div class="sticky top-4">
             <!-- Job Title -->
             <h3
-                class="text-xl md:text-2xl font-bold bg-gradient-to-r from-accentLime to-green-400
+                class="text-xl md:text-2xl font-bold bg-gradient-to-r from-primary to-primaryDark
                 bg-clip-text text-transparent mb-2 leading-tight"
             >
                 {title}
             </h3>
 
             <!-- Company Name -->
-            <h4
-                class="font-semibold text-lg md:text-xl text-gray-300 mb-3
-                group-hover:text-white transition-colors duration-300"
-            >
+            <h4 class="font-semibold text-lg md:text-xl text-primaryDark mb-3">
                 {company}
             </h4>
 
             <!-- Date with modern styling -->
             <time
                 class="inline-flex items-center px-3 py-1 text-sm font-medium
-                bg-gradient-to-r from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-700
-                text-gray-600 dark:text-gray-300 rounded-full border border-gray-200 dark:border-gray-600
+                bg-gradient-to-br from-primary/50 to-secondary/50
+                text-gray-300 rounded-full border border-primary/50
                 shadow-sm hover:shadow-md transition-all duration-300"
             >
                 <svg
@@ -71,13 +68,13 @@ const { title, description, link, date, company } = Astro.props;
     <div class="relative flex flex-col gap-4 md:col-span-3">
         <!-- Modern card container -->
         <div
-            class="relative p-6 rounded-2xl bg-gradient-to-br from-gray-800/30 to-gray-900/30 backdrop-blur-sm border
-            border-accentLime/10 shadow-xl shadow-black/20 group-hover:shadow-2xl group-hover:shadow-black/30
-            group-hover:border-accentLime/30 transition-all duration-500"
+            class="relative p-6 rounded-2xl bg-gradient-to-br from-primary/5 to-secondary/5 backdrop-blur-sm border
+            border-primary/10 shadow-xl shadow-black/20 group-hover:shadow-2xl group-hover:shadow-black/30
+            group-hover:border-primary/30 transition-all duration-500"
         >
             <!-- Subtle gradient overlay -->
             <div
-                class="absolute inset-0 rounded-2xl bg-gradient-to-br from-accentLime/5 to-transparent opacity-0
+                class="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/5 to-transparent opacity-0
                 group-hover:opacity-100 transition-opacity duration-500"
             >
             </div>
