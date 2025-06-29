@@ -3,22 +3,23 @@ const personalImageAlt = "Javier Gonzalez Soldado";
 ---
 
 <article
-    class="relative flex flex-col items-center justify-center gap-12 text-gray-700 dark:text-gray-300 md:flex-row md:gap-16 animate-fade-in"
+    class="relative flex flex-col items-center justify-between gap-12 text-primary md:flex-row md:gap-16 animate-fade-in"
 >
     <!-- Animated background elements -->
     <div class="absolute inset-0 -z-10 overflow-hidden">
         <div
-            class="absolute top-1/4 left-1/4 w-32 h-32 bg-gradient-to-r from-yellow-400/10 to-orange-400/10 rounded-full blur-xl animate-float"
+            class="absolute top-1/4 left-1/4 w-32 h-32 bg-gradient-to-r from-primary/10 to-primaryDark/10 rounded-full blur-xl animate-float"
         >
         </div>
         <div
-            class="absolute bottom-1/4 right-1/4 w-24 h-24 bg-gradient-to-r from-blue-400/10 to-purple-400/10 rounded-full blur-xl animate-float-delayed"
+            class="absolute bottom-1/4 right-1/4 w-24 h-24 bg-gradient-to-r from-primary/10 to-primaryDark/10 rounded-full blur-xl animate-float-delayed"
         >
         </div>
     </div>
 
     <div
-        class="[&>p]:mb-6 [&>p>strong]:text-transparent [&>p>strong]:bg-gradient-to-r [&>p>strong]:from-yellow-500 [&>p>strong]:to-orange-500 [&>p>strong]:bg-clip-text dark:[&>p>strong]:from-yellow-100 dark:[&>p>strong]:to-orange-200 [&>p>strong]:font-medium [&>p>strong]:font-mono text-pretty order-2 md:order-1 max-w-lg animate-slide-in-left"
+        class="[&>p]:mb-6 [&>p>strong]:text-transparent [&>p>strong]:text-secondary [&>p>strong]:font-medium [&>p>strong]:font-mono
+        text-pretty order-2 md:order-1 max-w-3xl animate-slide-in-left"
     >
         <p
             class="opacity-0 animate-fade-in-up"
@@ -56,7 +57,7 @@ const personalImageAlt = "Javier Gonzalez Soldado";
 
         <!-- Animated accent line -->
         <div
-            class="w-0 h-1 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-full mt-8 animate-expand-width"
+            class="w-0 h-1 bg-gradient-to-r from-primary to-primaryDark rounded-full mt-8 animate-expand-width"
             style="animation-delay: 0.8s;"
         >
         </div>
@@ -65,13 +66,16 @@ const personalImageAlt = "Javier Gonzalez Soldado";
     <div class="relative group order-1 md:order-2 animate-slide-in-right">
         <!-- Animated ring background -->
         <div
-            class="absolute inset-0 bg-gradient-to-r from-yellow-500/20 to-orange-500/20 rounded-2xl blur-lg scale-110 opacity-0 group-hover:opacity-100 transition-all duration-500 animate-pulse-subtle"
+            class="absolute inset-0 bg-gradient-to-r from-primary/90 to-primaryDark/90 rounded-2xl blur-lg
+            scale-110 opacity-0 group-hover:opacity-100 transition-all duration-500 animate-pulse-subtle"
         >
         </div>
 
         <!-- Image container with advanced styling -->
         <div
-            class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-yellow-500/10 to-orange-500/10 p-1 backdrop-blur-sm ring-1 ring-black/10 dark:ring-white/10 transition-all duration-500 hover:scale-105 hover:rotate-1 hover:shadow-2xl hover:shadow-yellow-500/25"
+            class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary/10 to-primaryDark/10
+            p-1 backdrop-blur-sm ring-1 ring-black/10 dark:ring-white/10 transition-all duration-500 hover:scale-105
+            hover:rotate-1 hover:shadow-2xl hover:shadow-primary/25"
         >
             <img
                 width="200"
@@ -84,24 +88,24 @@ const personalImageAlt = "Javier Gonzalez Soldado";
 
             <!-- Overlay gradient on hover -->
             <div
-                class="absolute inset-0 bg-gradient-to-t from-yellow-500/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl"
+                class="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl"
             >
             </div>
         </div>
 
         <!-- Floating elements around image -->
         <div
-            class="absolute -top-2 -left-2 w-4 h-4 bg-yellow-500 rounded-full animate-bounce"
+            class="absolute -top-2 -left-2 w-4 h-4 bg-secondary rounded-full animate-bounce"
             style="animation-delay: 1s;"
         >
         </div>
         <div
-            class="absolute -bottom-2 -right-2 w-3 h-3 bg-orange-500 rounded-full animate-bounce"
+            class="absolute -bottom-2 -right-2 w-3 h-3 bg-secondary rounded-full animate-bounce"
             style="animation-delay: 1.5s;"
         >
         </div>
         <div
-            class="absolute top-1/2 -right-4 w-2 h-2 bg-blue-500 rounded-full animate-pulse"
+            class="absolute top-1/2 -right-4 w-2 h-2 bg-secondary rounded-full animate-pulse"
             style="animation-delay: 2s;"
         >
         </div>
