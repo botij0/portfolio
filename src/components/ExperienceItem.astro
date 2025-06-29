@@ -13,7 +13,7 @@ const { title, description, link, date, company } = Astro.props;
 <div
     class="relative mx-4 pb-8 group transition-all duration-500 ease-in-out hover:scale-[1.02]
     before:absolute before:left-[-35px] before:block before:h-full before:w-0.5
-    before:bg-primary/50
+    before:bg-primary/80
     before:content-['']
     md:mx-12 md:pb-12 md:grid md:grid-cols-5 md:gap-8"
 >
@@ -45,8 +45,8 @@ const { title, description, link, date, company } = Astro.props;
             <!-- Date with modern styling -->
             <time
                 class="inline-flex items-center px-3 py-1 text-sm font-medium
-                bg-gradient-to-br from-primary/50 to-secondary/50
-                text-gray-300 rounded-full border border-primary/50
+                bg-gradient-to-br from-primary/5 to-primaryDark/5 backdrop-blur-sm
+                text-secondary rounded-full border border-primary/50
                 shadow-sm hover:shadow-md transition-all duration-300"
             >
                 <svg
@@ -68,9 +68,9 @@ const { title, description, link, date, company } = Astro.props;
     <div class="relative flex flex-col gap-4 md:col-span-3">
         <!-- Modern card container -->
         <div
-            class="relative p-6 rounded-2xl bg-gradient-to-br from-primary/5 to-secondary/5 backdrop-blur-sm border
-            border-primary/10 shadow-xl shadow-black/20 group-hover:shadow-2xl group-hover:shadow-black/30
-            group-hover:border-primary/30 transition-all duration-500"
+            class="relative p-6 rounded-2xl bg-gradient-to-br from-primary/5 to-primaryDark/5 backdrop-blur-sm border
+            border-primary/50 shadow-xl shadow-black/20 group-hover:shadow-2xl group-hover:shadow-black/30
+            group-hover:border-primary/70 transition-all duration-500"
         >
             <!-- Subtle gradient overlay -->
             <div
@@ -81,8 +81,8 @@ const { title, description, link, date, company } = Astro.props;
 
             <!-- Description -->
             <div
-                class="relative z-10 mb-4 text-base leading-relaxed text-gray-300
-                group-hover:text-gray-100 transition-colors duration-300"
+                class="relative z-10 mb-4 text-base leading-relaxed text-secondary/90
+                group-hover:text-secondary/100 transition-colors duration-300"
                 title={description.length > 150 ? description : undefined}
             >
                 {
