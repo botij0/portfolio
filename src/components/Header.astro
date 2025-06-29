@@ -31,7 +31,7 @@ const navItems = [
         {
             navItems.map((link) => (
                 <a
-                    class="px-2 hover:text-primary dark:hover:text-primary font-bold text-lg transition-all duration-200"
+                    class="px-2 text-secondary/80 hover:text-secondary font-bold text-lg transition-all duration-200"
                     aria-label={link.label}
                     href={link.url}
                 >
@@ -51,7 +51,7 @@ const navItems = [
 
     @keyframes header-shadown {
         to {
-            @apply shadow-lg ring-1 bg-dark ring-primary/20;
+            @apply shadow-lg ring-1 bg-black ring-primary/20   bg-gradient-to-br from-primary/15 to-primaryDark/10 backdrop-blur-sm;
         }
     }
 </style>
