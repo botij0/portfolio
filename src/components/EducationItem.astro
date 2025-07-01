@@ -35,42 +35,60 @@ const { degree, institution, period, description, gpa, achievements } =
     <h4 class="font-semibold text-lg text-primaryDark mb-3">
         {institution}
     </h4>
-    <time class="block mb-2 text-sm font-normal leading-none text-primaryDark"
-        >{period}</time
+    <time
+        class="inline-flex items-center px-3 py-1 text-sm font-medium
+        bg-gradient-to-br from-primary/5 to-primaryDark/5 backdrop-blur-sm
+        text-secondary rounded-full border border-primary/50
+        shadow-md shadow-primaryDark/20 transition-all duration-500"
     >
-    <p class="text-base font-normal text-secondary">
-        Get started with dozens of web components and interactive elements.
-    </p>
+        <svg
+            class="w-4 h-4 mr-2 opacity-60"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+        >
+            <path
+                fill-rule="evenodd"
+                d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
+                clip-rule="evenodd"></path>
+        </svg>
+        {period}
+    </time>
+    <div
+        class="relative mt-5 p-6 rounded-2xl bg-gradient-to-br from-primary/5 to-primaryDark/5 backdrop-blur-sm border
+    border-primary/50 shadow-lg shadow-primaryDark/20 transition-all duration-500 text-secondary"
+    >
+        {description}
+    </div>
+
+    <style>
+        @keyframes shimmer {
+            0% {
+                transform: translateX(-100%) skewX(-12deg);
+            }
+            100% {
+                transform: translateX(200%) skewX(-12deg);
+            }
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .animate-shimmer {
+            animation: shimmer 2s ease-in-out infinite;
+        }
+
+        .animate-gradient {
+            background-size: 200% 200%;
+            animation: gradient 3s ease-in-out infinite;
+        }
+    </style>
 </div>
-
-<style>
-    @keyframes shimmer {
-        0% {
-            transform: translateX(-100%) skewX(-12deg);
-        }
-        100% {
-            transform: translateX(200%) skewX(-12deg);
-        }
-    }
-
-    @keyframes gradient {
-        0% {
-            background-position: 0% 50%;
-        }
-        50% {
-            background-position: 100% 50%;
-        }
-        100% {
-            background-position: 0% 50%;
-        }
-    }
-
-    .animate-shimmer {
-        animation: shimmer 2s ease-in-out infinite;
-    }
-
-    .animate-gradient {
-        background-size: 200% 200%;
-        animation: gradient 3s ease-in-out infinite;
-    }
-</style>
