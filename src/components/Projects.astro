@@ -1,62 +1,62 @@
 ---
-import GitHub from "./icons/Github.astro";
-import NextJS from "./icons/NextJS.astro";
-import Tailwind from "./icons/Tailwind.astro";
-import Spring from "./icons/Spring.astro";
-import Azure from "./icons/Azure.astro";
-import PostgreSQL from "./icons/PostgreSQL.astro";
-import Thymeleaf from "./icons/Thymeleaf.astro";
-import Bootstrap from "./icons/Bootstrap.astro";
-import JQuery from "./icons/JQuery.astro";
-import MySQL from "./icons/MySQL.astro";
+import LinkIcon from "./icons/LinkIcon.astro";
+import MySQLIcon from "./icons/MySQLIcon.astro";
+import AzureIcon from "./icons/AzureIcon.astro";
+import GitHubIcon from "./icons/GithubIcon.astro";
+import NextJSIcon from "./icons/NextJSIcon.astro";
+import SpringIcon from "./icons/SpringIcon.astro";
+import JQueryIcon from "./icons/JQueryIcon.astro";
 import LinkButton from "./LinkButton.astro";
-import Link from "./icons/Link.astro";
+import TailwindIcon from "./icons/TailwindIcon.astro";
+import ThymeleafIcon from "./icons/ThymeleafIcon.astro";
+import BootstrapIcon from "./icons/BootstrapIcon.astro";
+import PostgreSQLIcon from "./icons/PostgreSQLIcon.astro";
 
 const TAGS = {
     NEXT: {
         name: "Next.js",
         class: "bg-gradient-to-r from-black/20 to-gray-950/20 text-secondary border-black",
-        icon: NextJS,
+        icon: NextJSIcon,
     },
     TAILWIND: {
         name: "Tailwind CSS",
         class: "bg-gradient-to-r from-teal-950/20 to-teal-800/20 text-secondary border-teal-950",
-        icon: Tailwind,
+        icon: TailwindIcon,
     },
     SPRING: {
         name: "Spring",
         class: "bg-gradient-to-r from-green-950/20 to-green-800/20 text-secondary border-green-950",
-        icon: Spring,
+        icon: SpringIcon,
     },
     POSTGRESQL: {
         name: "PostgreSQL",
         class: "bg-gradient-to-r from-blue-950/20 to-blue-800/20 text-secondary border-blue-950",
-        icon: PostgreSQL,
+        icon: PostgreSQLIcon,
     },
     AZURE: {
         name: "Azure",
         class: "bg-gradient-to-r from-indigo-950/20 to-indigo-800/20 text-secondary border-indigo-950",
-        icon: Azure,
+        icon: AzureIcon,
     },
     BOOTSTRAP: {
         name: "Bootstrap",
         class: "bg-gradient-to-r from-purple-950/20 to-purple-800/20 text-secondary border-purple-950",
-        icon: Bootstrap,
+        icon: BootstrapIcon,
     },
     JQUERY: {
         name: "jQuery",
         class: "bg-gradient-to-r from-cyan-950/20 to-cyan-800/20 text-secondary border-cyan-950",
-        icon: JQuery,
+        icon: JQueryIcon,
     },
     THYMELEAF: {
         name: "Thymeleaf",
         class: "bg-gradient-to-r from-emerald-950/20 to-emerald-800/20 text-secondary border-emerald-950",
-        icon: Thymeleaf,
+        icon: ThymeleafIcon,
     },
     MYSQL: {
         name: "MySQL",
         class: "bg-gradient-to-r from-slate-950/20 to-slate-800/20 text-secondary border-slate-950",
-        icon: MySQL,
+        icon: MySQLIcon,
     },
 };
 
@@ -134,7 +134,7 @@ const PROJECTS = [
                                     shadow-lg shadow-black/25"
                                     title="View Source Code"
                                 >
-                                    <GitHub class="w-5 h-5" />
+                                    <GitHubIcon class="w-5 h-5" />
                                 </a>
                             )}
                             {project.link && (
@@ -146,7 +146,7 @@ const PROJECTS = [
                                     title="Live Preview"
                                     target="_blank"
                                 >
-                                    <Link class="w-5 h-5" />
+                                    <LinkIcon class="w-5 h-5" />
                                 </a>
                             )}
                         </div>
@@ -201,7 +201,7 @@ const PROJECTS = [
                                     hover:text-secondary hover:scale-105 hover:shadow-lg hover:shadow-gray-600/25 transition-all duration-300 group/btn"
                                     target="_blank"
                                 >
-                                    <GitHub class="w-4 h-4 mr-2 group-hover/btn:rotate-12 transition-transform duration-300" />
+                                    <GitHubIcon class="w-4 h-4 mr-2 group-hover/btn:rotate-12 transition-transform duration-300" />
                                     Code
                                 </a>
                             )}
@@ -214,7 +214,7 @@ const PROJECTS = [
                                     transition-all duration-300 group/btn"
                                     target="_blank"
                                 >
-                                    <Link class="w-4 h-4 mr-2 group-hover/btn:translate-x-1 transition-transform duration-300" />
+                                    <LinkIcon class="w-4 h-4 mr-2 group-hover/btn:translate-x-1 transition-transform duration-300" />
                                     Preview
                                 </a>
                             )}

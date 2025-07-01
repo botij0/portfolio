@@ -1,15 +1,17 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import BriefCaseIcon from "../components/icons/BriefCase.astro";
-import Experience from "../components/Experience.astro";
 import SectionContainer from "../components/SectionContainer.astro";
-import EducationIcon from "../components/icons/Education.astro";
-import Education from "../components/Education.astro";
-import ProjectsIcon from "../components/icons/Projects.astro";
-import Projects from "../components/Projects.astro";
-import ProfileCheck from "../components/icons/ProfileCheck.astro";
-import AboutMe from "../components/AboutMe.astro";
+
 import Hero from "../components/Hero.astro";
+import Experience from "../components/Experience.astro";
+import Education from "../components/Education.astro";
+import Projects from "../components/Projects.astro";
+import AboutMe from "../components/AboutMe.astro";
+
+import ProjectsIcon from "../components/icons/ProjectsIcon.astro";
+import EducationIcon from "../components/icons/EducationIcon.astro";
+import BriefCaseIcon from "../components/icons/BriefCaseIcon.astro";
+import ProfileCheckIcon from "../components/icons/ProfileCheckIcon.astro";
 ---
 
 <Layout
@@ -57,7 +59,7 @@ import Hero from "../components/Hero.astro";
             <h2
                 class="flex items-center mb-6 text-3xl font-semibold gap-x-8 text-primary"
             >
-                <ProfileCheck class="size-8" />
+                <ProfileCheckIcon class="size-8" />
                 Sobre mí
             </h2>
             <AboutMe />
