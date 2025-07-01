@@ -1,0 +1,67 @@
+---
+import EducationItem from "./EducationItem.astro";
+
+const EDUCATION = [
+    {
+        degree: "Grado en Ingeniería Telemática",
+        institution: "Universidad de Alcalá",
+        period: "2019 - 2023",
+        description:
+            "Formación integral en redes, sistemas distribuidos, programación y telecomunicaciones. Base sólida en matemáticas, algoritmos y estructura de datos.",
+        gpa: "8.5/10",
+        achievements: [
+            "Matrícula de honor en Programación Avanzada",
+            "Proyecto de redes con reconocimiento académico",
+            "Participación en competiciones de programación",
+        ],
+    },
+    {
+        degree: "Máster en Desarrollo de Software",
+        institution: "Universidad de Alcalá",
+        period: "2023 - 2024",
+        description:
+            "Especialización en metodologías ágiles, desarrollo web moderno y arquitecturas escalables. Enfoque en frameworks modernos, DevOps y mejores prácticas de desarrollo.",
+        gpa: "9.2/10",
+        achievements: [
+            "Proyecto final con calificación sobresaliente",
+            "Especialización en React, Node.js y arquitecturas microservicios",
+            "Certificación en metodologías ágiles y Scrum",
+        ],
+    },
+];
+---
+
+<div class="relative">
+    <!-- Decorative gradient background -->
+    <div
+        class="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-600/5 rounded-3xl blur-3xl"
+    >
+    </div>
+
+    <ol class="items-center sm:flex">
+        {
+            EDUCATION.map((education, index) => (
+                <li class="relative mb-6 sm:mb-0">
+                    <EducationItem {...education} />
+                </li>
+            ))
+        }
+    </ol>
+</div>
+
+<style>
+    @keyframes fade-in-up {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .animate-fade-in-up {
+        animation: fade-in-up 0.6s ease-out;
+    }
+</style>
