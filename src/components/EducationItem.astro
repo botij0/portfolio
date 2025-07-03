@@ -1,4 +1,6 @@
 ---
+import CertificateIcon from "./icons/CertificateIcon.astro";
+
 interface Props {
     degree: string;
     institution: string;
@@ -41,12 +43,12 @@ const { degree, institution, period, description, gpa, achievements } =
         </h4>
         <time
             class="inline-flex items-center px-3 py-1 text-sm font-medium
-        bg-gradient-to-br from-primary/5 to-primaryDark/5 backdrop-blur-sm
-        text-secondary rounded-full border border-primary/50
-        shadow-md shadow-primaryDark/20 transition-all duration-500 group-hover:shadow-primary/20 group-hover:border-primary/70"
+        bg-gradient-to-r from-blue-950/20 to-blue-800/20 backdrop-blur-sm
+        text-secondary rounded-full border border-blue-950
+        shadow-md shadow-blue-950/20 transition-all duration-500 group-hover:shadow-blue-950/40"
         >
             <svg
-                class="w-4 h-4 mr-2 opacity-60"
+                class="w-4 h-4 mr-2 opacity-80 group-hover:opacity-100"
                 fill="currentColor"
                 viewBox="0 0 20 20"
             >
@@ -57,6 +59,22 @@ const { degree, institution, period, description, gpa, achievements } =
             </svg>
             {period}
         </time>
+        <!-- GPA if provided -->
+        {
+            gpa && (
+                <div class="mt-3">
+                    <span
+                        class="inline-flex items-center gap-x-2 px-3 py-1 text-sm font-semibold
+                                bg-gradient-to-r from-emerald-950/20 to-emerald-800/20
+                                text-secondary border border-emerald-950 rounded-full
+                                shadow-md shadow-emerald-950/20 group-hover:shadow-emerald-950/40"
+                    >
+                        <CertificateIcon class="w-4 h-4 opacity-80 group-hover:opacity-100" />
+                        GPA: {gpa}
+                    </span>
+                </div>
+            )
+        }
         <div
             class="relative mt-5 p-6 rounded-2xl bg-gradient-to-br from-primary/5 to-primaryDark/5 backdrop-blur-sm border text-pretty text-sm
                 border-primary/50 shadow-lg shadow-primaryDark/20 transition-all duration-500
