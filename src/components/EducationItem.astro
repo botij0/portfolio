@@ -81,6 +81,41 @@ const { degree, institution, period, description, gpa, achievements } =
                 text-secondary group-hover:shadow-primary/20 group-hover:border-primary/70"
         >
             {description}
+            <!-- Achievements -->
+            {
+                achievements && achievements.length > 0 && (
+                    <div class="relative z-10 mt-4">
+                        <h5 class="text-sm font-semibold text-primary mb-2 flex items-center">
+                            <svg
+                                class="w-4 h-4 mr-2"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                            >
+                                <path
+                                    fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.293l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L9 9.414V13a1 1 0 102 0V9.414l1.293 1.293a1 1 0 001.414-1.414z"
+                                    clip-rule="evenodd"
+                                />
+                            </svg>
+                            Logros destacados
+                        </h5>
+                        <ul class="space-y-1">
+                            {achievements.map((achievement, index) => (
+                                <li
+                                    class="text-xs text-secondary/90 flex items-start
+                                    group-hover:text-secondary transition-colors duration-300"
+                                    style={`animation-delay: ${index * 0.1}s`}
+                                >
+                                    <span class="text-primary mr-2 text-xs">
+                                        ▸
+                                    </span>
+                                    {achievement}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                )
+            }
         </div>
     </div>
 </div>

@@ -7,12 +7,11 @@ const EDUCATION = [
         institution: "Universidad de Alcalá",
         period: "2019 - 2023",
         description:
-            "Formación integral en redes, sistemas distribuidos, programación y telecomunicaciones. Base sólida en matemáticas, algoritmos y estructura de datos.",
+            "Formación integral en redes, sistemas distribuidos, programación y telecomunicaciones.",
         gpa: "8.6/10 - Premio Extraordinario",
         achievements: [
-            "Matrícula de honor en Programación Avanzada",
-            "Proyecto de redes con reconocimiento académico",
-            "Participación en competiciones de programación",
+            "Thesis (10-MH): “Migration to Rust language of the Instrument Control Unit (ICU) start-up software of the Energetic Particle Detector (EPD) instrument of the Solar Orbiter mission”.",
+            "14 matrículas de honor, destacando: Programación Avanzada, Sistemas Operativos y Ciberseguridad",
         ],
     },
     {
@@ -20,34 +19,26 @@ const EDUCATION = [
         institution: "Universidad de Alcalá",
         period: "2023 - 2024",
         description:
-            "Especialización en metodologías ágiles, desarrollo web moderno y arquitecturas escalables. Enfoque en frameworks modernos, DevOps y mejores prácticas de desarrollo.",
+            "Especialización en metodologías ágiles, desarrollo web moderno y arquitecturas escalables.",
         gpa: "9.2/10 - Premio Extraordinario",
         achievements: [
-            "Proyecto final con calificación sobresaliente",
-            "Especialización en React, Node.js y arquitecturas microservicios",
-            "Certificación en metodologías ágiles y Scrum",
+            "Thesis (10-MH): “Implications of Generative Artificial Intelligence in the Human Resources selection process”.",
+            "4 matriculas de honor, destacando: Backend y Microservicios y CI/CD ",
         ],
     },
 ];
 ---
 
-<div class="relative">
-    <!-- Decorative gradient background -->
-    <div
-        class="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-600/5 rounded-3xl blur-3xl"
-    >
-    </div>
-
-    <ol class="items-center sm:flex">
-        {
-            EDUCATION.map((education, index) => (
-                <li class="relative mb-6 sm:mb-0">
-                    <EducationItem {...education} />
-                </li>
-            ))
-        }
-    </ol>
-</div>
+<!-- TODO: adjust the list -->
+<ol class="items-center sm:flex w-full">
+    {
+        EDUCATION.map((education, index) => (
+            <li class="w-full">
+                <EducationItem {...education} />
+            </li>
+        ))
+    }
+</ol>
 
 <style>
     @keyframes fade-in-up {
