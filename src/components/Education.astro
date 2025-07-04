@@ -8,10 +8,10 @@ const EDUCATION = [
         period: "2019 - 2023",
         description:
             "Formación integral en redes, sistemas distribuidos, programación y telecomunicaciones.",
-        gpa: "8.6/10 - Premio Extraordinario",
+        gpa: "8.6/10",
         achievements: [
-            "Thesis (10-MH): “Migration to Rust language of the Instrument Control Unit (ICU) start-up software of the Energetic Particle Detector (EPD) instrument of the Solar Orbiter mission”.",
-            "14 matrículas de honor, destacando: Programación Avanzada, Sistemas Operativos y Ciberseguridad",
+            "Thesis (10-MH): Migration to Rust language of the Instrument Control Unit (ICU) start-up software of the Energetic Particle Detector (EPD) instrument of the Solar Orbiter mission",
+            "Premio extraordinario y 6 matrículas de honor",
         ],
     },
     {
@@ -20,20 +20,21 @@ const EDUCATION = [
         period: "2023 - 2024",
         description:
             "Especialización en metodologías ágiles, desarrollo web moderno y arquitecturas escalables.",
-        gpa: "9.2/10 - Premio Extraordinario",
+        gpa: "9.2/10",
         achievements: [
-            "Thesis (10-MH): “Implications of Generative Artificial Intelligence in the Human Resources selection process”.",
-            "4 matriculas de honor, destacando: Backend y Microservicios y CI/CD ",
+            "Thesis (10-MH): Implications of Generative Artificial Intelligence in the Human Resources selection process",
+            "Premio extraordinario y 2 matrículas de honor",
         ],
     },
 ];
 ---
 
-<!-- TODO: adjust the list -->
-<ol class="items-center sm:flex w-full">
+<ol
+    class="flex flex-col lg:flex-row items-start lg:items-stretch w-full gap-8 lg:gap-0"
+>
     {
         EDUCATION.map((education, index) => (
-            <li class="w-full">
+            <li class="flex-1 flex">
                 <EducationItem {...education} />
             </li>
         ))

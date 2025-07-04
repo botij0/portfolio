@@ -14,7 +14,10 @@ const { degree, institution, period, description, gpa, achievements } =
     Astro.props;
 ---
 
-<div class="group transition-all duration-500 ease-in-out hover:scale-[1.02]">
+<div
+    class="group transition-all duration-500 ease-in-out hover:scale-[1.02] h-full flex flex-col"
+>
+    <!-- Timeline -->
     <div class="flex items-center">
         <div
             class="z-10 flex items-center justify-center w-6 h-6 rounded-full ring-0
@@ -28,21 +31,28 @@ const { degree, institution, period, description, gpa, achievements } =
                 viewBox="0 0 20 20"
             >
                 <path
-                    d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"
+                    d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1
+                    1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"
                 ></path>
             </svg>
         </div>
-        <div class="hidden sm:flex w-full h-0.5 bg-primary/20"></div>
+        <div class="flex w-full h-0.5 bg-primary/20"></div>
     </div>
-    <div class="mt-3 sm:pe-20">
+    <!-- Text Content -->
+    <div class="mt-3 sm:pe-20 flex-1 flex flex-col">
+        <!-- Degree -->
         <h3 class="text-xl font-semibold text-primary">
             {degree}
         </h3>
+
+        <!-- Institution -->
         <h4 class="font-semibold text-lg text-primaryDark mb-3">
             {institution}
         </h4>
+
+        <!-- Period -->
         <time
-            class="inline-flex items-center px-3 py-1 text-sm font-medium
+            class="inline-flex items-center px-3 py-1 text-sm font-medium w-fit
         bg-gradient-to-r from-blue-950/20 to-blue-800/20 backdrop-blur-sm
         text-secondary rounded-full border border-blue-950
         shadow-md shadow-blue-950/20 transition-all duration-500 group-hover:shadow-blue-950/40"
@@ -59,6 +69,7 @@ const { degree, institution, period, description, gpa, achievements } =
             </svg>
             {period}
         </time>
+
         <!-- GPA if provided -->
         {
             gpa && (
@@ -75,10 +86,12 @@ const { degree, institution, period, description, gpa, achievements } =
                 </div>
             )
         }
+
+        <!-- Description -->
         <div
             class="relative mt-5 p-6 rounded-2xl bg-gradient-to-br from-primary/5 to-primaryDark/5 backdrop-blur-sm border text-pretty text-sm
                 border-primary/50 shadow-lg shadow-primaryDark/20 transition-all duration-500
-                text-secondary group-hover:shadow-primary/20 group-hover:border-primary/70"
+                text-secondary group-hover:shadow-primary/20 group-hover:border-primary/70 flex-1"
         >
             {description}
             <!-- Achievements -->
@@ -93,7 +106,8 @@ const { degree, institution, period, description, gpa, achievements } =
                             >
                                 <path
                                     fill-rule="evenodd"
-                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.293l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L9 9.414V13a1 1 0 102 0V9.414l1.293 1.293a1 1 0 001.414-1.414z"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.293l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0
+                                     001.414 1.414L9 9.414V13a1 1 0 102 0V9.414l1.293 1.293a1 1 0 001.414-1.414z"
                                     clip-rule="evenodd"
                                 />
                             </svg>
@@ -102,7 +116,7 @@ const { degree, institution, period, description, gpa, achievements } =
                         <ul class="space-y-1">
                             {achievements.map((achievement, index) => (
                                 <li
-                                    class="text-xs text-secondary/90 flex items-start
+                                    class="text-sm text-secondary/90 flex items-start
                                     group-hover:text-secondary transition-colors duration-300"
                                     style={`animation-delay: ${index * 0.1}s`}
                                 >
