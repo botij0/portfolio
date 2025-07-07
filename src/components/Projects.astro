@@ -15,7 +15,7 @@ import PostgreSQLIcon from "./icons/PostgreSQLIcon.astro";
 const TAGS = {
     NEXT: {
         name: "Next.js",
-        class: "bg-gradient-to-r from-black/20 to-gray-950/20 text-secondary border-black",
+        class: "bg-gradient-to-r from-black/40 to-gray-950/40 text-secondary border-black",
         icon: NextJSIcon,
     },
     TAILWIND: {
@@ -55,7 +55,7 @@ const TAGS = {
     },
     MYSQL: {
         name: "MySQL",
-        class: "bg-gradient-to-r from-slate-950/20 to-slate-800/20 text-secondary border-slate-950",
+        class: "bg-gradient-to-r from-slate-500/20 to-slate-700/20 text-secondary border-slate-600",
         icon: MySQLIcon,
     },
 };
@@ -129,9 +129,9 @@ const PROJECTS = [
                             {project.github && (
                                 <a
                                     href={project.github}
-                                    class="flex items-center justify-center w-10 h-10 bg-black/80 backdrop-blur-sm
-                                    text-secondary rounded-full hover:bg-black hover:scale-110 transition-all duration-300
-                                    shadow-lg shadow-black/25"
+                                    class="flex items-center justify-center w-10 h-10 bg-slate-800/90
+                                    text-secondary rounded-full hover:bg-slate-800 hover:scale-110 transition-all duration-300
+                                    hover:shadow-lg hover:shadow-slate-500/50"
                                     title="View Source Code"
                                 >
                                     <GitHubIcon class="w-5 h-5" />
@@ -140,9 +140,9 @@ const PROJECTS = [
                             {project.link && (
                                 <a
                                     href={project.link}
-                                    class="flex items-center justify-center w-10 h-10 bg-dark bg-gradient-to-r from-primary/40 to-primaryDark/10 backdrop-blur-sm
-                                    text-secondary rounded-full hover:from-primary/20 hover:to-primaryDark/20 hover:scale-110 transition-all duration-300
-                                    shadow-lg shadow-primary/25"
+                                    class="flex items-center justify-center w-10 h-10 bg-dark bg-gradient-to-r from-primaryDark/60 to-primaryDark/50
+                                    text-secondary rounded-full hover:from-primary/40 hover:to-primaryDark/30 hover:scale-110 transition-all duration-300
+                                    hover:shadow-lg hover:shadow-primaryDark/50"
                                     title="Live Preview"
                                     target="_blank"
                                 >
@@ -197,8 +197,8 @@ const PROJECTS = [
                                 <a
                                     href={project.github}
                                     class="inline-flex items-center px-4 py-2 text-sm font-semibold text-secondary/80
-                                    bg-gray-900 backdrop-blur-sm rounded-xl border border-gray-700 hover:bg-gray-950/80
-                                    hover:text-secondary hover:scale-105 hover:shadow-lg hover:shadow-gray-600/25 transition-all duration-300 group/btn"
+                                    bg-gray-900/70 rounded-xl border border-gray-800 hover:bg-gray-900/80
+                                    hover:text-secondary hover:scale-105 hover:shadow-md hover:shadow-gray-900 transition-all duration-300 group/btn"
                                     target="_blank"
                                 >
                                     <GitHubIcon class="w-4 h-4 mr-2 group-hover/btn:rotate-12 transition-transform duration-300" />
@@ -210,11 +210,11 @@ const PROJECTS = [
                                     href={project.link}
                                     class="inline-flex items-center px-4 py-2 text-sm font-semibold text-secondary
                                     bg-gradient-to-r from-primary/10 to-primaryDark/10 rounded-xl border border-primary/30
-                                    hover:from-primary/20 hover:to-primaryDark/20 hover:scale-105 hover:shadow-xl hover:shadow-primary/25
+                                    hover:from-primary/15 hover:to-primaryDark/15 hover:scale-105 hover:shadow-md hover:shadow-primary/25
                                     transition-all duration-300 group/btn"
                                     target="_blank"
                                 >
-                                    <LinkIcon class="w-4 h-4 mr-2 group-hover/btn:translate-x-1 transition-transform duration-300" />
+                                    <LinkIcon class="w-4 h-4 mr-2 group-hover/btn:rotate-12 transition-transform duration-300" />
                                     Preview
                                 </a>
                             )}
