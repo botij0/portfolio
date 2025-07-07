@@ -14,7 +14,7 @@ const personalImageAlt = "Javier González Soldado";
         <div class="flex flex-col justify-between items-center gap-y-12 w-1/4">
             <img
                 class="rounded-full shadow-2xl shadow-primary/40 size-48 ring-2 ring-primary/50 object-fit"
-                src="me.webp"
+                src="me.jpeg"
                 alt={personalImageAlt}
             />
         </div>
@@ -22,48 +22,52 @@ const personalImageAlt = "Javier González Soldado";
             <h1
                 class="text-4xl font-bold tracking-tight sm:text-5xl text-primary"
             >
-                👋 ¡Hola! Soy Javier González
+                ¡Hola! Soy Javier González
             </h1>
-            <h2 class="text-lg md:text-xl text-secondary text-pretty">
-                Tengo 23 años y soy Ingeniero de Software con 2 años de
-                experiencia en el sector. Disfruto de la programación con
-                especial foco en el desarrollo web y la aplicación de la IA
-                Generativa para resolver problemas de forma automatizada.
+            <h2
+                class="text-lg md:text-xl text-primary text-pretty [&>strong]:text-secondary"
+            >
+                Tengo <strong>23 años</strong> y soy Ingeniero Telemático con <strong
+                    >2 años</strong
+                > de experiencia en el sector del <strong>software</strong>.
+                Disfruto de la programación con especial foco en el
+                <strong>desarrollo web</strong> y la aplicación de la
+                <strong>IA Generativa</strong> para resolver problemas de forma automatizada.
             </h2>
         </div>
     </div>
-    <div class="flex justify-between items-center mb-4">
-        <div class="flex flex-col justify-center items-center w-1/4">
-            <a
+</div>
+<div class="flex justify-between items-center mb-4">
+    <div class="flex flex-col justify-center items-center w-1/4">
+        <a
+            href="https://www.linkedin.com/in/javier-gonzalez-soldado/"
+            target="_blank"
+            rel="noopener"
+            class="flex items-center transition md:justify-center md:hover:scale-105"
+        >
+            <Badge>Escucho ofertas</Badge>
+        </a>
+    </div>
+    <div class="flex flex-col justify-center items-start w-3/4">
+        <nav class="flex gap-x-4">
+            <SocialPill
                 href="https://www.linkedin.com/in/javier-gonzalez-soldado/"
-                target="_blank"
-                rel="noopener"
-                class="flex items-center transition md:justify-center md:hover:scale-105"
+                color="cyan"
             >
-                <Badge>Escucho ofertas</Badge>
-            </a>
-        </div>
-        <div class="flex flex-col justify-center items-start w-3/4">
-            <nav class="flex gap-x-4">
-                <SocialPill
-                    href="https://www.linkedin.com/in/javier-gonzalez-soldado/"
-                    color="cyan"
-                >
-                    <LinkedInIcon class="size-6" />
-                    LinkedIn
-                </SocialPill>
-                <SocialPill href="https://github.com/botij0" color="lime">
-                    <GithubIcon class="size-6" />
-                    GitHub
-                </SocialPill>
-                <SocialPill
-                    href="mailto:javier.gonzalez.soldado@gmail.com"
-                    color="emerald"
-                >
-                    <MailIcon class="size-6" />
-                    Email
-                </SocialPill>
-            </nav>
-        </div>
+                <LinkedInIcon class="size-6" />
+                LinkedIn
+            </SocialPill>
+            <SocialPill href="https://github.com/botij0" color="lime">
+                <GithubIcon class="size-6" />
+                GitHub
+            </SocialPill>
+            <SocialPill
+                href="mailto:javier.gonzalez.soldado@gmail.com"
+                color="emerald"
+            >
+                <MailIcon class="size-6" />
+                Email
+            </SocialPill>
+        </nav>
     </div>
 </div>
