@@ -1,0 +1,461 @@
+---
+import AzureIcon from "@/components/icons/AzureIcon.astro";
+import BootstrapIcon from "@/components/icons/BootstrapIcon.astro";
+import GithubIcon from "@/components/icons/GithubIcon.astro";
+import JQueryIcon from "@/components/icons/JQueryIcon.astro";
+import MySQLIcon from "@/components/icons/MySQLIcon.astro";
+import NextJSIcon from "@/components/icons/NextJSIcon.astro";
+import PostgreSQLIcon from "@/components/icons/PostgreSQLIcon.astro";
+import SpringIcon from "@/components/icons/SpringIcon.astro";
+import TailwindIcon from "@/components/icons/TailwindIcon.astro";
+import ThymeleafIcon from "@/components/icons/ThymeleafIcon.astro";
+
+const skills = [
+    // Frontend Technologies
+    { name: "Next.js", icon: NextJSIcon, level: "Advanced", category: "frontend", color: "from-cyan-400 to-blue-600" },
+    { name: "Tailwind CSS", icon: TailwindIcon, level: "Advanced", category: "frontend", color: "from-cyan-400 to-blue-600" },
+    { name: "Bootstrap", icon: BootstrapIcon, level: "Advanced", category: "frontend", color: "from-cyan-400 to-blue-600" },
+    { name: "jQuery", icon: JQueryIcon, level: "Intermediate", category: "frontend", color: "from-cyan-400 to-blue-600" },
+    { name: "Thymeleaf", icon: ThymeleafIcon, level: "Intermediate", category: "frontend", color: "from-cyan-400 to-blue-600" },
+
+    // Backend Technologies
+    { name: "Spring Boot", icon: SpringIcon, level: "Advanced", category: "backend", color: "from-emerald-400 to-green-600" },
+    { name: "Java", icon: null, level: "Advanced", category: "backend", color: "from-emerald-400 to-green-600" },
+    { name: "Python", icon: null, level: "Intermediate", category: "backend", color: "from-emerald-400 to-green-600" },
+    { name: "Node.js", icon: null, level: "Intermediate", category: "backend", color: "from-emerald-400 to-green-600" },
+
+    // Database Technologies
+    { name: "PostgreSQL", icon: PostgreSQLIcon, level: "Advanced", category: "database", color: "from-orange-400 to-red-600" },
+    { name: "MySQL", icon: MySQLIcon, level: "Advanced", category: "database", color: "from-orange-400 to-red-600" },
+    { name: "MongoDB", icon: null, level: "Intermediate", category: "database", color: "from-orange-400 to-red-600" },
+
+    // DevOps & Cloud Technologies
+    { name: "Azure", icon: AzureIcon, level: "Intermediate", category: "devops", color: "from-purple-400 to-pink-600" },
+    { name: "GitHub", icon: GithubIcon, level: "Advanced", category: "devops", color: "from-purple-400 to-pink-600" },
+    { name: "Docker", icon: null, level: "Intermediate", category: "devops", color: "from-purple-400 to-pink-600" },
+    { name: "CI/CD", icon: null, level: "Intermediate", category: "devops", color: "from-purple-400 to-pink-600" }
+];
+
+const getLevelColor = (level) => {
+    switch(level) {
+        case "Advanced": return "text-green-400";
+        case "Intermediate": return "text-yellow-400";
+        case "Basic": return "text-orange-400";
+        default: return "text-gray-400";
+    }
+};
+
+const getLevelBg = (level) => {
+    switch(level) {
+        case "Advanced": return "bg-green-400/20 border-green-400/30";
+        case "Intermediate": return "bg-yellow-400/20 border-yellow-400/30";
+        case "Basic": return "bg-orange-400/20 border-orange-400/30";
+        default: return "bg-gray-400/20 border-gray-400/30";
+    }
+};
+
+const filters = [
+    { name: "All", value: "all", color: "from-pink-500 to-violet-500" },
+    { name: "Frontend", value: "frontend", color: "from-cyan-400 to-blue-600" },
+    { name: "Backend", value: "backend", color: "from-emerald-400 to-green-600" },
+    { name: "Databases", value: "database", color: "from-orange-400 to-red-600" },
+    { name: "DevOps & Cloud", value: "devops", color: "from-purple-400 to-pink-600" }
+];
+---
+
+<div class="skills-section">
+    <!-- Filter Buttons -->
+    <div class="filter-buttons">
+        {filters.map((filter, index) => (
+            <button
+                class={`filter-btn ${index === 0 ? 'active' : ''}`}
+                data-filter={filter.value}
+                style={`animation-delay: ${index * 0.1}s`}
+            >
+                <span class={`filter-btn-bg bg-gradient-to-r ${filter.color}`}></span>
+                <span class="filter-btn-text">{filter.name}</span>
+            </button>
+        ))}
+    </div>
+
+    <!-- Skills Grid -->
+    <div class="skills-grid">
+        {skills.map((skill, skillIndex) => (
+            <div
+                class="skill-card group"
+                data-category={skill.category}
+                style={`animation-delay: ${skillIndex * 0.1}s`}
+            >
+                <div class="skill-content">
+                    <div class="skill-header">
+                        {skill.icon && (
+                            <div class={`skill-icon bg-gradient-to-r ${skill.color}`}>
+                                <skill.icon class="size-8 text-white" />
+                            </div>
+                        )}
+                        {!skill.icon && (
+                            <div class={`skill-icon-placeholder bg-gradient-to-r ${skill.color}`}>
+                                <span class="text-2xl font-bold text-white">
+                                    {skill.name.charAt(0)}
+                                </span>
+                            </div>
+                        )}
+                        <div class="skill-info">
+                            <span class="skill-name">{skill.name}</span>
+                            <span class={`skill-level ${getLevelColor(skill.level)} ${getLevelBg(skill.level)}`}>
+                                {skill.level}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Floating particles effect -->
+                <div class="particles">
+                    <div class="particle particle-1"></div>
+                    <div class="particle particle-2"></div>
+                    <div class="particle particle-3"></div>
+                </div>
+
+                <!-- Category indicator -->
+                <div class={`category-indicator bg-gradient-to-r ${skill.color}`}></div>
+            </div>
+        ))}
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const skillCards = document.querySelectorAll('.skill-card');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const filter = this.getAttribute('data-filter');
+
+                // Update active button
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+
+                // Filter skills with animation
+                skillCards.forEach((card, index) => {
+                    const category = card.getAttribute('data-category');
+                    const shouldShow = filter === 'all' || filter === category;
+
+                    if (shouldShow) {
+                        card.style.display = 'block';
+                        card.style.animationDelay = `${index * 0.05}s`;
+                        card.classList.remove('hidden');
+                        setTimeout(() => {
+                            card.classList.add('visible');
+                        }, 10);
+                    } else {
+                        card.classList.remove('visible');
+                        card.classList.add('hidden');
+                        setTimeout(() => {
+                            if (card.classList.contains('hidden')) {
+                                card.style.display = 'none';
+                            }
+                        }, 300);
+                    }
+                });
+            });
+        });
+    });
+</script>
+
+<style>
+    .skills-section {
+        width: 100%;
+    }
+
+    /* Filter Buttons */
+    .filter-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: center;
+        margin-bottom: 3rem;
+        padding: 0 1rem;
+    }
+
+    .filter-btn {
+        position: relative;
+        padding: 0.75rem 1.5rem;
+        border: none;
+        border-radius: 2rem;
+        background: rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        overflow: hidden;
+        opacity: 0;
+        transform: translateY(20px);
+        animation: slideInUp 0.6s ease-out forwards;
+    }
+
+    .filter-btn:hover {
+        transform: translateY(-2px) scale(1.05);
+        border-color: rgba(255, 255, 255, 0.3);
+        box-shadow: 0 10px 30px rgba(255, 0, 93, 0.2);
+    }
+
+    .filter-btn.active {
+        transform: translateY(-2px);
+        border-color: rgba(255, 255, 255, 0.4);
+        box-shadow: 0 8px 25px rgba(255, 0, 93, 0.3);
+    }
+
+    .filter-btn.active .filter-btn-bg {
+        opacity: 1;
+    }
+
+    .filter-btn.active .filter-btn-text {
+        color: white;
+        font-weight: 700;
+    }
+
+    .filter-btn-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        border-radius: 2rem;
+    }
+
+    .filter-btn:hover .filter-btn-bg {
+        opacity: 0.7;
+    }
+
+    .filter-btn-text {
+        position: relative;
+        z-index: 2;
+        color: #e2e8f0;
+        font-weight: 600;
+        font-size: 0.875rem;
+        transition: all 0.3s ease;
+    }
+
+    /* Skills Grid */
+    .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .skill-card {
+        position: relative;
+        background: rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(15px);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 1rem;
+        padding: 1.5rem;
+        opacity: 0;
+        transform: translateY(30px);
+        animation: slideInUp 0.6s ease-out forwards;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        overflow: hidden;
+    }
+
+    .skill-card.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .skill-card.hidden {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    .skill-card:hover {
+        transform: translateY(-8px) scale(1.03);
+        background: rgba(255, 255, 255, 0.12);
+        border-color: rgba(255, 255, 255, 0.25);
+        box-shadow: 0 25px 50px rgba(255, 0, 93, 0.15);
+    }
+
+    .skill-content {
+        position: relative;
+        z-index: 2;
+    }
+
+    .skill-header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .skill-icon, .skill-icon-placeholder {
+        width: 4rem;
+        height: 4rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 0.75rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .skill-card:hover .skill-icon,
+    .skill-card:hover .skill-icon-placeholder {
+        transform: rotate(10deg) scale(1.1);
+        box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+    }
+
+    .skill-info {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        flex: 1;
+    }
+
+    .skill-name {
+        color: #e2e8f0;
+        font-weight: 700;
+        font-size: 1.25rem;
+        line-height: 1.2;
+    }
+
+    .skill-level {
+        display: inline-block;
+        padding: 0.375rem 0.75rem;
+        border-radius: 0.5rem;
+        font-weight: 600;
+        font-size: 0.875rem;
+        border: 1px solid;
+        backdrop-filter: blur(10px);
+        width: fit-content;
+        transition: all 0.3s ease;
+    }
+
+    .skill-card:hover .skill-level {
+        transform: scale(1.05);
+    }
+
+    /* Category indicator */
+    .category-indicator {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        border-radius: 1rem 1rem 0 0;
+    }
+
+    /* Floating particles */
+    .particles {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .skill-card:hover .particles {
+        opacity: 1;
+    }
+
+    .particle {
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        background: rgba(255, 0, 93, 0.6);
+        border-radius: 50%;
+        animation: float 3s infinite;
+    }
+
+    .particle-1 {
+        top: 20%;
+        left: 20%;
+        animation-delay: 0s;
+    }
+
+    .particle-2 {
+        top: 60%;
+        left: 80%;
+        animation-delay: 1s;
+    }
+
+    .particle-3 {
+        top: 80%;
+        left: 40%;
+        animation-delay: 2s;
+    }
+
+    /* Animations */
+    @keyframes slideInUp {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes float {
+        0%, 100% {
+            transform: translateY(0) rotate(0deg);
+            opacity: 0;
+        }
+        50% {
+            transform: translateY(-20px) rotate(180deg);
+            opacity: 1;
+        }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .filter-buttons {
+            gap: 0.75rem;
+            margin-bottom: 2rem;
+        }
+
+        .filter-btn {
+            padding: 0.625rem 1.25rem;
+            font-size: 0.8rem;
+        }
+
+        .skills-grid {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .skill-card {
+            padding: 1.25rem;
+        }
+
+        .skill-header {
+            gap: 0.75rem;
+        }
+
+        .skill-icon, .skill-icon-placeholder {
+            width: 3rem;
+            height: 3rem;
+        }
+
+        .skill-name {
+            font-size: 1.1rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .filter-buttons {
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .filter-btn {
+            width: 100%;
+            max-width: 200px;
+        }
+
+        .skills-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
