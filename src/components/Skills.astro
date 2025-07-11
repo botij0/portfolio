@@ -12,51 +12,59 @@ import ThymeleafIcon from "@/components/icons/ThymeleafIcon.astro";
 
 const skills = [
     // Frontend Technologies
-    { name: "Next.js", icon: NextJSIcon, level: "Advanced", category: "frontend", color: "from-cyan-400 to-blue-600" },
-    { name: "Astro", icon: null, level: "Intermediate", category: "frontend", color: "from-cyan-400 to-blue-600" },
-    { name: "React", icon: null, level: "Intermediate", category: "frontend", color: "from-cyan-400 to-blue-600" },
-    { name: "Tailwind CSS", icon: TailwindIcon, level: "Advanced", category: "frontend", color: "from-cyan-400 to-blue-600" },
-    { name: "HTML", icon: null, level: "Advanced", category: "frontend", color: "from-cyan-400 to-blue-600" },
-    { name: "CSS", icon: null, level: "Advanced", category: "frontend", color: "from-cyan-400 to-blue-600" },
-    { name: "JavaScript", icon: null, level: "Advanced", category: "frontend", color: "from-cyan-400 to-blue-600" },
-    { name: "TypeScript", icon: null, level: "Intermediate", category: "frontend", color: "from-cyan-400 to-blue-600" },
+    { name: "Next.js", icon: NextJSIcon, level: "Advanced", category: "frontend" },
+    { name: "Astro", icon: null, level: "Intermediate", category: "frontend" },
+    { name: "React", icon: null, level: "Intermediate", category: "frontend" },
+    { name: "Tailwind CSS", icon: TailwindIcon, level: "Advanced", category: "frontend" },
+    { name: "HTML", icon: null, level: "Advanced", category: "frontend" },
+    { name: "CSS", icon: null, level: "Advanced", category: "frontend" },
+    { name: "JavaScript", icon: null, level: "Advanced", category: "frontend" },
+    { name: "TypeScript", icon: null, level: "Intermediate", category: "frontend" },
 
     // Backend Technologies
-    { name: "Python", icon: null, level: "Intermediate", category: "backend", color: "from-emerald-400 to-green-600" },
-    { name: "Java", icon: null, level: "Advanced", category: "backend", color: "from-emerald-400 to-green-600" },
-    { name: "Spring Boot", icon: SpringIcon, level: "Advanced", category: "backend", color: "from-emerald-400 to-green-600" },
-    { name: "Node.js", icon: null, level: "Intermediate", category: "backend", color: "from-emerald-400 to-green-600" },
+    { name: "Python", icon: null, level: "Intermediate", category: "backend" },
+    { name: "Java", icon: null, level: "Advanced", category: "backend" },
+    { name: "Spring Boot", icon: SpringIcon, level: "Advanced", category: "backend" },
+    { name: "Node.js", icon: null, level: "Intermediate", category: "backend" },
 
 
     // Database Technologies
-    { name: "PostgreSQL", icon: PostgreSQLIcon, level: "Intermediate", category: "database", color: "from-orange-400 to-red-600" },
-    { name: "MySQL", icon: MySQLIcon, level: "Intermediate", category: "database", color: "from-orange-400 to-red-600" },
-    { name: "MongoDB", icon: null, level: "Basic", category: "database", color: "from-orange-400 to-red-600" },
-    { name: "Redis", icon: null, level: "Basic", category: "database", color: "from-orange-400 to-red-600" },
+    { name: "PostgreSQL", icon: PostgreSQLIcon, level: "Intermediate", category: "database" },
+    { name: "MySQL", icon: MySQLIcon, level: "Intermediate", category: "database" },
+    { name: "MongoDB", icon: null, level: "Basic", category: "database" },
+    { name: "Redis", icon: null, level: "Basic", category: "database" },
 
     // DevOps & Cloud Technologies
-    { name: "Azure", icon: AzureIcon, level: "Intermediate", category: "devops", color: "from-purple-400 to-pink-600" },
-    { name: "GitHub", icon: GithubIcon, level: "Advanced", category: "devops", color: "from-purple-400 to-pink-600" },
-    { name: "Docker", icon: null, level: "Intermediate", category: "devops", color: "from-purple-400 to-pink-600" },
-    { name: "CI/CD", icon: null, level: "Intermediate", category: "devops", color: "from-purple-400 to-pink-600" }
+    { name: "Azure", icon: AzureIcon, level: "Intermediate", category: "devops" },
+    { name: "GitHub", icon: GithubIcon, level: "Advanced", category: "devops" },
+    { name: "Docker", icon: null, level: "Intermediate", category: "devops" },
+    { name: "CI/CD", icon: null, level: "Intermediate", category: "devops" }
 
 ];
 
-const getLevelColor = (level) => {
+const getLevelBg = (level) => {
     switch(level) {
-        case "Advanced": return "text-green-400";
-        case "Intermediate": return "text-yellow-400";
-        case "Basic": return "text-orange-400";
-        default: return "text-gray-400";
+        case "Advanced": return "from-purple-800/20 to-purple-950/10 border-purple-400/20";
+        case "Intermediate": return "from-sky-800/20 to-sky-950/10 border-sky-400/20";
+        case "Basic": return "from-lime-800/20 to-lime-950/10 border-lime-400/20";
     }
 };
 
-const getLevelBg = (level) => {
-    switch(level) {
-        case "Advanced": return "from-green-400 to-green-600";
-        case "Intermediate": return "from-yellow-400 to-yellow-600";
-        case "Basic": return "from-orange-400 to-orange-600";
-        default: return "from-gray-400 to-gray-600";
+const getTechnologyColor = (technology) => {
+    switch(technology) {
+        case "frontend": return "from-blue-800/20 to-blue-950/10 border-blue-500/30 group-hover:border-blue-500/70";
+        case "backend": return "from-orange-800/20 to-orange-950/10 border-orange-500/30 group-hover:border-orange-500/70";
+        case "database": return "from-emerald-800/20 to-emerald-950/10 border-emerald-500/30 group-hover:border-emerald-600/70";
+        case "devops": return "from-slate-800/20 to-slate-950/10 border-slate-500/30 group-hover:border-slate-500/70";
+    }
+};
+
+const getTechnologyColorIndicator = (technology) => {
+    switch(technology) {
+        case "frontend": return "from-blue-900/30 to-blue-950/30 border-blue-900 group-hover:border-blue-600";
+        case "backend": return "from-orange-900/30 to-orange-950/30 border-orange-900 group-hover:border-orange-600";
+        case "database": return "from-emerald-900/30 to-emerald-950/30 border-emerald-900 group-hover:border-emerald-600";
+        case "devops": return "from-slate-900/30 to-slate-950/30 border-slate-800 group-hover:border-slate-700";
     }
 };
 
@@ -88,37 +96,29 @@ const filters = [
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
         {skills.map((skill, skillIndex) => (
             <div
-                class="relative group p-4 rounded-2xl bg-gradient-to-br from-primary/10 to-primaryDark/10
-                border border-primary/20 overflow-hidden shadow-md shadow-primary/20 transition-all duration-300
-                ease-in-out hover:scale-[1.02] hover:shadow-primary/40"
+                class="relative group p-4 rounded-xl bg-gradient-to-br from-primary/10 to-primaryDark/10
+                border border-primary/20 shadow-md shadow-primary/10 transition-all duration-300
+                ease-in-out hover:scale-[1.02] hover:shadow-primary/40 border-t-0 hover:from-primary/10 hover:to-primary/10"
                 data-category={skill.category}
                 style={`animation-delay: ${skillIndex * 0.1}s`}
             >
-                <div class="skill-content">
-                    <div class="skill-header">
-                        {skill.icon && (
-                            <div class={`skill-icon bg-gradient-to-r ${skill.color}`}>
-                                <skill.icon class="size-8 text-white" />
-                            </div>
-                        )}
-                        {!skill.icon && (
-                            <div class={`skill-icon-placeholder bg-gradient-to-r ${skill.color}`}>
-                                <span class="text-lg font-bold text-white">
-                                    {skill.name.charAt(0)}
-                                </span>
-                            </div>
-                        )}
-                        <div class="skill-info">
-                            <span class="text-xs font-bold text-secondary">{skill.name}</span>
-                            <span class={`skill-level bg-gradient-to-rb ${getLevelColor(skill.level)} ${getLevelBg(skill.level)}`}>
-                                {skill.level}
-                            </span>
+
+                <div class="flex items-center gap-4">
+                        <div class={`flex items-center justify-center rounded-2xl w-16 h-16
+                            bg-gradient-to-r border ${getTechnologyColor(skill.category)} backdrop-blur-xl `}>
+                            {skill.icon && ( <skill.icon class="size-8 text-white/80 group-hover:text-white" /> )}
                         </div>
+                    <div class="flex flex-col gap-2">
+                        <span class="text-sm font-bold text-primaryDark group-hover:text-primary">{skill.name}</span>
+                        <span class={`py-1 px-2 rounded-lg text-xs font-medium border bg-gradient-to-r text-secondary/80 group-hover:text-secondary w-fit ${getLevelBg(skill.level)}`}>
+                            {skill.level}
+                        </span>
                     </div>
                 </div>
 
+
                 <!-- Category indicator -->
-                <div class={`category-indicator bg-gradient-to-r ${skill.color}`}></div>
+                <div class={`absolute top-0 left-0 w-full h-2 bg-gradient-to-r border border-b-0 rounded-t-3xl opacity-100 ${getTechnologyColorIndicator(skill.category)}`}></div>
             </div>
         ))}
     </div>
@@ -238,74 +238,6 @@ const filters = [
     }
 
     /* Skills Grid */
-    .skills-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 1.5rem;
-    }
-
-    .skill-card {
-        opacity: 0;
-    }
-
-    .skill-card.visible {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-    .skill-card.hidden {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-
-    .skill-card:hover {
-        transform: translateY(-8px) scale(1.03);
-        background: rgba(255, 255, 255, 0.12);
-        border-color: rgba(255, 255, 255, 0.25);
-        box-shadow: 0 25px 50px rgba(255, 0, 93, 0.15);
-    }
-
-    .skill-content {
-        position: relative;
-        z-index: 2;
-    }
-
-    .skill-header {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-    }
-
-    .skill-icon, .skill-icon-placeholder {
-        width: 4rem;
-        height: 4rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 0.75rem;
-        transition: all 0.3s ease;
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-    }
-
-    .skill-card:hover .skill-icon,
-    .skill-card:hover .skill-icon-placeholder {
-        transform: rotate(10deg) scale(1.1);
-        box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
-    }
-
-    .skill-info {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-        flex: 1;
-    }
-
-    .skill-name {
-        color: #e2e8f0;
-        font-weight: 700;
-        font-size: 1.25rem;
-        line-height: 1.2;
-    }
 
     .skill-level {
         display: inline-block;
@@ -323,58 +255,6 @@ const filters = [
         transform: scale(1.05);
     }
 
-    /* Category indicator */
-    .category-indicator {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 4px;
-        border-radius: 1rem 1rem 0 0;
-    }
-
-    /* Floating particles */
-    .particles {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        pointer-events: none;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-    }
-
-    .skill-card:hover .particles {
-        opacity: 1;
-    }
-
-    .particle {
-        position: absolute;
-        width: 4px;
-        height: 4px;
-        background: rgba(255, 0, 93, 0.6);
-        border-radius: 50%;
-        animation: float 3s infinite;
-    }
-
-    .particle-1 {
-        top: 20%;
-        left: 20%;
-        animation-delay: 0s;
-    }
-
-    .particle-2 {
-        top: 60%;
-        left: 80%;
-        animation-delay: 1s;
-    }
-
-    .particle-3 {
-        top: 80%;
-        left: 40%;
-        animation-delay: 2s;
-    }
 
     /* Animations */
     @keyframes slideInUp {
@@ -395,55 +275,5 @@ const filters = [
         }
     }
 
-    /* Responsive */
-    @media (max-width: 768px) {
-        .filter-buttons {
-            gap: 0.75rem;
-            margin-bottom: 2rem;
-        }
 
-        .filter-btn {
-            padding: 0.625rem 1.25rem;
-            font-size: 0.8rem;
-        }
-
-        .skills-grid {
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
-        }
-
-        .skill-card {
-            padding: 1.25rem;
-        }
-
-        .skill-header {
-            gap: 0.75rem;
-        }
-
-        .skill-icon, .skill-icon-placeholder {
-            width: 3rem;
-            height: 3rem;
-        }
-
-        .skill-name {
-            font-size: 1.1rem;
-        }
-    }
-
-    @media (max-width: 480px) {
-        .filter-buttons {
-            flex-direction: column;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .filter-btn {
-            width: 100%;
-            max-width: 200px;
-        }
-
-        .skills-grid {
-            grid-template-columns: 1fr;
-        }
-    }
 </style>
