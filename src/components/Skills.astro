@@ -9,36 +9,55 @@ import PostgreSQLIcon from "@/components/icons/db/PostgreSQLIcon.astro";
 import SpringIcon from "@/components/icons/backend/SpringIcon.astro";
 import TailwindIcon from "@/components/icons/frontend/TailwindIcon.astro";
 import ThymeleafIcon from "@/components/icons/frontend/ThymeleafIcon.astro";
+import MongodbIcon from "@/components/icons/db/MongodbIcon.astro";
+import PythonIcon from "@/components/icons/backend/PythonIcon.astro";
+import JavaIcon from "@/components/icons/backend/JavaIcon.astro";
+import NodejsIcon from "@/components/icons/backend/NodejsIcon.astro";
+import CSSIcon from "@/components/icons/frontend/CSSIcon.astro";
+import JavascriptIcon from "@/components/icons/frontend/JavascriptIcon.astro";
+import TypescriptIcon from "@/components/icons/frontend/TypescriptIcon.astro";
+import AstroIcon from "@/components/icons/frontend/AstroIcon.astro";
+import ReactIcon from "@/components/icons/frontend/ReactIcon.astro";
+import HTMLIcon from "@/components/icons/frontend/HTMLIcon.astro";
+import GitIcon from "@/components/icons/devops/GitIcon.astro";
+import DatabricksIcon from "@/components/icons/devops/DatabricksIcon.astro";
+import KubernetesIcon from "@/components/icons/devops/KubernetesIcon.astro";
+import DockerIcon from "@/components/icons/devops/DockerIcon.astro";
+import RedisIcon from "@/components/icons/db/RedisIcon.astro";
+import CiCdIcon from "@/components/icons/devops/CiCdIcon.astro";
+import FastApiIcon from "@/components/icons/backend/FastApiIcon.astro";
 
 const skills = [
     // Frontend Technologies
     { name: "Next.js", icon: NextJSIcon, level: "Advanced", category: "frontend" },
-    { name: "Astro", icon: null, level: "Intermediate", category: "frontend" },
-    { name: "React", icon: null, level: "Intermediate", category: "frontend" },
+    { name: "Astro", icon: AstroIcon, level: "Intermediate", category: "frontend" },
+    { name: "React", icon: ReactIcon, level: "Intermediate", category: "frontend" },
     { name: "Tailwind CSS", icon: TailwindIcon, level: "Advanced", category: "frontend" },
-    { name: "HTML", icon: null, level: "Advanced", category: "frontend" },
-    { name: "CSS", icon: null, level: "Advanced", category: "frontend" },
-    { name: "JavaScript", icon: null, level: "Advanced", category: "frontend" },
-    { name: "TypeScript", icon: null, level: "Intermediate", category: "frontend" },
+    { name: "HTML", icon: HTMLIcon, level: "Advanced", category: "frontend" },
+    { name: "CSS", icon: CSSIcon, level: "Advanced", category: "frontend" },
+    { name: "JavaScript", icon: JavascriptIcon, level: "Advanced", category: "frontend" },
+    { name: "TypeScript", icon: TypescriptIcon, level: "Intermediate", category: "frontend" },
 
     // Backend Technologies
-    { name: "Python", icon: null, level: "Intermediate", category: "backend" },
-    { name: "Java", icon: null, level: "Advanced", category: "backend" },
+    { name: "Python", icon: PythonIcon, level: "Intermediate", category: "backend" },
+    { name: "Java", icon: JavaIcon, level: "Advanced", category: "backend" },
     { name: "Spring Boot", icon: SpringIcon, level: "Advanced", category: "backend" },
-    { name: "Node.js", icon: null, level: "Intermediate", category: "backend" },
-
+    { name: "Node.js", icon: NodejsIcon, level: "Intermediate", category: "backend" },
+    { name: "FastAPI", icon: FastApiIcon, level: "Intermediate", category: "backend" },
 
     // Database Technologies
     { name: "PostgreSQL", icon: PostgreSQLIcon, level: "Intermediate", category: "database" },
     { name: "MySQL", icon: MySQLIcon, level: "Intermediate", category: "database" },
-    { name: "MongoDB", icon: null, level: "Basic", category: "database" },
-    { name: "Redis", icon: null, level: "Basic", category: "database" },
+    { name: "MongoDB", icon: MongodbIcon, level: "Basic", category: "database" },
+    { name: "Redis", icon: RedisIcon, level: "Basic", category: "database" },
 
     // DevOps & Cloud Technologies
     { name: "Azure", icon: AzureIcon, level: "Intermediate", category: "devops" },
-    { name: "GitHub", icon: GithubIcon, level: "Advanced", category: "devops" },
-    { name: "Docker", icon: null, level: "Intermediate", category: "devops" },
-    { name: "CI/CD", icon: null, level: "Intermediate", category: "devops" }
+    { name: "Docker", icon: DockerIcon, level: "Intermediate", category: "devops" },
+    { name: "Git", icon: GitIcon, level: "Intermediate", category: "devops" },
+    { name: "Databricks", icon: DatabricksIcon, level: "Intermediate", category: "devops" },
+    { name: "CI/CD", icon: CiCdIcon, level: "Intermediate", category: "devops" },
+    { name: "Kubernetes", icon: KubernetesIcon, level: "Intermediate", category: "devops" }
 
 ];
 
@@ -73,7 +92,7 @@ const filters = [
     { name: "Frontend", value: "frontend", color: "from-blue-900/30 to-blue-950/30 border-blue-900" },
     { name: "Backend", value: "backend", color: "from-orange-900/30 to-orange-950/30 border-orange-900 group-hover:border-orange-600" },
     { name: "Databases", value: "database", color: "from-emerald-900/30 to-emerald-950/30 border-emerald-900 group-hover:border-emerald-600" },
-    { name: "DevOps & Cloud", value: "devops", color: "from-slate-900/30 to-slate-950/30 border-slate-800 group-hover:border-slate-700" }
+    { name: "DevOps", value: "devops", color: "from-slate-900/30 to-slate-950/30 border-slate-800 group-hover:border-slate-700" }
 ];
 ---
 
